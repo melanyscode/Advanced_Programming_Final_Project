@@ -1,0 +1,6 @@
+C:\ProgamacionAvanzada\ProyectoFinal\Advanced_Programming_Final_Project\FinalProject\FinalProject.Business\bin\Debug\FinalProject.Business.dll
+C:\ProgamacionAvanzada\ProyectoFinal\Advanced_Programming_Final_Project\FinalProject\FinalProject.Business\bin\Debug\FinalProject.Business.pdb
+C:\ProgamacionAvanzada\ProyectoFinal\Advanced_Programming_Final_Project\FinalProject\FinalProject.Business\obj\Debug\FinalProject.Business.csproj.AssemblyReference.cache
+C:\ProgamacionAvanzada\ProyectoFinal\Advanced_Programming_Final_Project\FinalProject\FinalProject.Business\obj\Debug\FinalProject.Business.csproj.CoreCompileInputs.cache
+C:\ProgamacionAvanzada\ProyectoFinal\Advanced_Programming_Final_Project\FinalProject\FinalProject.Business\obj\Debug\FinalProject.Business.dll
+C:\ProgamacionAvanzada\ProyectoFinal\Advanced_Programming_Final_Project\FinalProject\FinalProject.Business\obj\Debug\FinalProject.Business.pdb

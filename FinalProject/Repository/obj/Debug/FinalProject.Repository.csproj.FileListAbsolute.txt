@@ -1,0 +1,15 @@
+C:\ProgamacionAvanzada\ProyectoFinal\Advanced_Programming_Final_Project\FinalProject\Repository\obj\Debug\FinalProject.Repository.csproj.AssemblyReference.cache
+C:\ProgamacionAvanzada\ProyectoFinal\Advanced_Programming_Final_Project\FinalProject\Repository\obj\Debug\FinalProject.Repository.csproj.CoreCompileInputs.cache
+C:\ProgamacionAvanzada\ProyectoFinal\Advanced_Programming_Final_Project\FinalProject\Repository\bin\Debug\Repository.dll.config
+C:\ProgamacionAvanzada\ProyectoFinal\Advanced_Programming_Final_Project\FinalProject\Repository\bin\Debug\Repository.dll
+C:\ProgamacionAvanzada\ProyectoFinal\Advanced_Programming_Final_Project\FinalProject\Repository\bin\Debug\Repository.pdb
+C:\ProgamacionAvanzada\ProyectoFinal\Advanced_Programming_Final_Project\FinalProject\Repository\bin\Debug\EntityFramework.dll
+C:\ProgamacionAvanzada\ProyectoFinal\Advanced_Programming_Final_Project\FinalProject\Repository\bin\Debug\EntityFramework.SqlServer.dll
+C:\ProgamacionAvanzada\ProyectoFinal\Advanced_Programming_Final_Project\FinalProject\Repository\bin\Debug\FinalProject.Data.dll
+C:\ProgamacionAvanzada\ProyectoFinal\Advanced_Programming_Final_Project\FinalProject\Repository\bin\Debug\FinalProject.Data.pdb
+C:\ProgamacionAvanzada\ProyectoFinal\Advanced_Programming_Final_Project\FinalProject\Repository\bin\Debug\FinalProject.Data.dll.config
+C:\ProgamacionAvanzada\ProyectoFinal\Advanced_Programming_Final_Project\FinalProject\Repository\bin\Debug\EntityFramework.xml
+C:\ProgamacionAvanzada\ProyectoFinal\Advanced_Programming_Final_Project\FinalProject\Repository\bin\Debug\EntityFramework.SqlServer.xml
+C:\ProgamacionAvanzada\ProyectoFinal\Advanced_Programming_Final_Project\FinalProject\Repository\obj\Debug\FinalPro.2BA212CF.Up2Date
+C:\ProgamacionAvanzada\ProyectoFinal\Advanced_Programming_Final_Project\FinalProject\Repository\obj\Debug\Repository.dll
+C:\ProgamacionAvanzada\ProyectoFinal\Advanced_Programming_Final_Project\FinalProject\Repository\obj\Debug\Repository.pdb

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TaskOpsDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ExecutionLogs">
+    <Key>
+      <PropertyRef Name="LogId" />
+    </Key>
+    <Property Name="LogId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TaskId" Type="int" Nullable="false" />
+    <Property Name="ExecutionTime" Type="datetime" />
+    <Property Name="ExecutionStatus" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="OutputMessage" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Tasks">
+    <Key>
+      <PropertyRef Name="TaskId" />
+    </Key>
+    <Property Name="TaskId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TaskName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Priority" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="ExecutionDate" Type="datetime" Nullable="false" />
+    <Property Name="SimulatedCommand" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="CreatedAt" Type="datetime" />
+    <Property Name="UpdatedAt" Type="datetime" />
+  </EntityType>
+  <Association Name="FK__Execution__TaskI__3F466844">
+    <End Role="Tasks" Type="Self.Tasks" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ExecutionLogs" Type="Self.ExecutionLogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tasks">
+        <PropertyRef Name="TaskId" />
+      </Principal>
+      <Dependent Role="ExecutionLogs">
+        <PropertyRef Name="TaskId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TaskOpsDBModelStoreContainer">
+    <EntitySet Name="ExecutionLogs" EntityType="Self.ExecutionLogs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tasks" EntityType="Self.Tasks" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Execution__TaskI__3F466844" Association="Self.FK__Execution__TaskI__3F466844">
+      <End Role="Tasks" EntitySet="Tasks" />
+      <End Role="ExecutionLogs" EntitySet="ExecutionLogs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
