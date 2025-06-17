@@ -1,12 +1,55 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\ProgamacionAvanzada\\ProyectoFinal\\Advanced_Programming_Final_Project\\FinalProject\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|FinalProject||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EDE8807B-5F40-424E-9E4D-540CA5CAABA7}|FinalProject\\FinalProject.csproj|C:\\ProgamacionAvanzada\\ProyectoFinal\\Advanced_Programming_Final_Project\\FinalProject\\finalproject\\properties\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EDE8807B-5F40-424E-9E4D-540CA5CAABA7}|FinalProject\\FinalProject.csproj|solutionrelative:finalproject\\properties\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EDE8807B-5F40-424E-9E4D-540CA5CAABA7}|FinalProject\\FinalProject.csproj|c:\\progamacionavanzada\\proyectofinal\\advanced_programming_final_project\\finalproject\\finalproject\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|5e9a8ac2-4f34-4521-858f-4c248ba31532"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 222,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FinalProject",
+              "DocumentMoniker": "C:\\ProgamacionAvanzada\\ProyectoFinal\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject\\FinalProject.csproj",
+              "RelativeDocumentMoniker": "FinalProject\\FinalProject.csproj",
+              "ToolTip": "C:\\ProgamacionAvanzada\\ProyectoFinal\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject\\FinalProject.csproj",
+              "RelativeToolTip": "FinalProject\\FinalProject.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-06-17T03:31:23.661Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AssemblyInfo.cs",
+              "DocumentMoniker": "C:\\ProgamacionAvanzada\\ProyectoFinal\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject\\Properties\\AssemblyInfo.cs",
+              "RelativeDocumentMoniker": "FinalProject\\Properties\\AssemblyInfo.cs",
+              "ToolTip": "C:\\ProgamacionAvanzada\\ProyectoFinal\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject\\Properties\\AssemblyInfo.cs",
+              "RelativeToolTip": "FinalProject\\Properties\\AssemblyInfo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T03:26:45.059Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
