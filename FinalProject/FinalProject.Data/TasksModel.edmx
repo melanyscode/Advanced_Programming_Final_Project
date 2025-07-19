@@ -27,6 +27,7 @@
           <Property Name="Status" Type="nvarchar" MaxLength="15" Nullable="false" />
           <Property Name="CreatedAt" Type="datetime" />
           <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="Result" Type="nvarchar(max)" />
         </EntityType>
         <Association Name="FK__Execution__TaskI__3F466844">
           <End Role="Tasks" Type="Self.Tasks" Multiplicity="1">
@@ -78,6 +79,7 @@
           <Property Name="Status" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CreatedAt" Type="DateTime" Precision="3" />
           <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="Result" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ExecutionLogs" Relationship="Self.FK__Execution__TaskI__3F466844" FromRole="Tasks" ToRole="ExecutionLogs" />
         </EntityType>
         <Association Name="FK__Execution__TaskI__3F466844">
@@ -130,6 +132,7 @@
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
                 <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="Result" ColumnName="Result" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

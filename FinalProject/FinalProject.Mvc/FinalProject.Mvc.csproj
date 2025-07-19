@@ -231,6 +231,10 @@
       <Project>{8fbda621-1477-49b3-b9ec-c39da1ae6f90}</Project>
       <Name>FinalProject.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FinalProject.Worker\FinalProject.Worker.csproj">
+      <Project>{fdec575a-c3a7-4614-b8f3-c2e688739e28}</Project>
+      <Name>FinalProject.Worker</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
