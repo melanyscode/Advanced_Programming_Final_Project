@@ -59,6 +59,14 @@ namespace FinalProject.Mvc.Controllers
                 taskBusiness.SaveChanges();
                 return RedirectToAction("Index");
             }
+            var executionDateErrors = ModelState["ExecutionDate"]?.Errors;
+            if (executionDateErrors != null && executionDateErrors.Count > 0)
+            {
+                foreach (var error in executionDateErrors)
+                {
+                    System.Diagnostics.Debug.WriteLine("ExecutionDate error: " + error.ErrorMessage);
+                }
+            }
 
             return View(tasks);
         }

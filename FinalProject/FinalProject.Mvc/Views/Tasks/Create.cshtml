@@ -66,7 +66,7 @@
             {
                 @class = "form-control",
                 type = "datetime-local",
-                value = (Model?.ExecutionDate ?? DateTime.Now).ToString("yyyy-MM-ddTHH:mm")
+                value = (Model?.ExecutionDate ?? DateTime.Now).ToString("yyyy-MM-dd")
             })
             @Html.ValidationMessageFor(model => model.ExecutionDate, "", new { @class = "text-danger" })
         </div>
@@ -81,7 +81,7 @@
         {
             @class = "form-control",
             type = "datetime-local",
-            value = (Model?.UpdatedAt ?? DateTime.Now).ToString("yyyy-MM-ddTHH:mm")
+            value = (Model?.UpdatedAt ?? DateTime.Now).ToString("yyyy-MM-dd")
         })
         @Html.ValidationMessageFor(model => model.UpdatedAt, "", new { @class = "text-danger" })
     </div>
