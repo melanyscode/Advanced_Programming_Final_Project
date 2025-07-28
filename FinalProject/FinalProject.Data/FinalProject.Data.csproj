@@ -76,6 +76,12 @@
     <Compile Include="Tasks.cs">
       <DependentUpon>TaskOpsDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>TaskOpsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserTask.cs">
+      <DependentUpon>TaskOpsDB.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="TaskOpsDB.edmx">

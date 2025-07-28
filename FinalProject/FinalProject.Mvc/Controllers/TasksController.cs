@@ -43,6 +43,15 @@ namespace FinalProject.Mvc.Controllers
         // GET: Tasks/Create
         public ActionResult Create()
         {
+
+            ViewBag.PriorityOptions = new List<SelectListItem>
+{
+    new SelectListItem { Text = "High", Value = "High" },
+    new SelectListItem { Text = "Medium", Value = "Medium" },
+    new SelectListItem { Text = "Low", Value = "Low" }
+};
+
+
             return View();
         }
 
@@ -51,17 +60,19 @@ namespace FinalProject.Mvc.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TaskId,TaskName,Priority,ExecutionDate,SimulatedCommand,Status,CreatedAt,UpdatedAt")] Tasks tasks)
+        public ActionResult Create([Bind(Include = "TaskId,TaskName,Priority,Executable")] Tasks tasks)
         {
             if (ModelState.IsValid)
             {
-                taskBusiness.SaveTask(0,tasks);
+                tasks.CreatedAt = DateTime.Now;
+                taskBusiness.SaveTask(0, tasks);
                 taskBusiness.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             return View(tasks);
         }
+
 
         // GET: Tasks/Edit/5
         public ActionResult Edit(int? id)
@@ -75,6 +86,14 @@ namespace FinalProject.Mvc.Controllers
             {
                 return HttpNotFound();
             }
+
+            ViewBag.PriorityOptions = new List<SelectListItem>
+    {
+        new SelectListItem { Text = "High", Value = "High" },
+        new SelectListItem { Text = "Medium", Value = "Medium" },
+        new SelectListItem { Text = "Low", Value = "Low" }
+    };
+
             return View(tasks);
         }
 
@@ -83,16 +102,20 @@ namespace FinalProject.Mvc.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TaskId,TaskName,Priority,ExecutionDate,SimulatedCommand,Status,CreatedAt,UpdatedAt")] Tasks tasks)
+        public ActionResult Edit([Bind(Include = "TaskId,TaskName,Priority,Executable,CreatedAt")] Tasks tasks)
         {
             if (ModelState.IsValid)
             {
+                tasks.UpdatedAt = DateTime.Now; 
                 taskBusiness.Update(tasks);
                 taskBusiness.SaveChanges();
                 return RedirectToAction("Index");
             }
+
+
             return View(tasks);
         }
+
 
         // GET: Tasks/Delete/5
         public ActionResult Delete(int? id)

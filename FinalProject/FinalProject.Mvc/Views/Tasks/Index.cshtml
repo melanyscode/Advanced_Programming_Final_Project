@@ -1,69 +1,60 @@
 ﻿@model IEnumerable<FinalProject.Data.Tasks>
 
+<link href="~/Content/Site.css" rel="stylesheet" />
+
 @{
     ViewBag.Title = "Index";
+    var groupedTasks = Model.GroupBy(t => t.Priority);
 }
 
-<h2>Index</h2>
+<div class="switch-section">
+    <div class="switch-buttons">
+        <a href="https://localhost:44368/Tasks/Index" class="switch-btn active">Priority</a>
+        <a href="#" class="switch-btn disabled">Status</a>
+    </div>
+    <hr class="custom-divider" />
+</div>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("CREATE NEW", "Create", null, new { @class = "top-link" })
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.TaskName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Priority)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ExecutionDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SimulatedCommand)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Status)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedAt)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UpdatedAt)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TaskName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Priority)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ExecutionDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SimulatedCommand)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Status)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedAt)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UpdatedAt)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.TaskId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.TaskId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.TaskId })
-        </td>
-    </tr>
+@foreach (var group in groupedTasks.OrderBy(g => g.Key)) 
+{
+    <div style="margin-bottom: 40px;">
+        <h3 style="margin-top: 30px;">@group.Key Priority</h3>
+
+        <table class="table" style="margin-top: 15px;">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.TaskName)</th>
+                <th>@Html.DisplayNameFor(model => model.Priority)</th>
+                <th>@Html.DisplayNameFor(model => model.Executable)</th>
+                <th>@Html.DisplayNameFor(model => model.CreatedAt)</th>
+                <th>@Html.DisplayNameFor(model => model.UpdatedAt)</th>
+                <th>Actions</th>
+            </tr>
+
+            @foreach (var item in group)
+            {
+                var priorityClass = item.Priority == "High" ? "badge-high" :
+                                    item.Priority == "Medium" ? "badge-medium" :
+                                    item.Priority == "Low" ? "badge-low" : "badge-low";
+
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.TaskName)</td>
+                    <td><span class="badge @priorityClass">@Html.DisplayFor(modelItem => item.Priority)</span></td>
+                    <td>@Html.DisplayFor(modelItem => item.Executable)</td>
+                    <td style="text-align: center;">@Html.DisplayFor(modelItem => item.CreatedAt)</td>
+                    <td style="text-align: center;">@Html.DisplayFor(modelItem => item.UpdatedAt)</td>
+                    <td class="action-buttons">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.TaskId }, new { @class = "btn-action edit" })
+                        @Html.ActionLink("Details", "Details", new { id = item.TaskId }, new { @class = "btn-action details" })
+                        @Html.ActionLink("Delete", "Delete", new { id = item.TaskId }, new { @class = "btn-action delete" })
+                    </td>
+                </tr>
+            }
+        </table>
+        <hr style="margin-top: 30px;" />
+    </div>
 }
 
-</table>

@@ -6,8 +6,12 @@
     <edmx:Diagrams>
       <Diagram DiagramId="fe1f4b5ed6874fa9abde6b3f84f50b74" Name="Diagram1">
         <EntityTypeShape EntityType="TaskOpsDBModel.ExecutionLogs" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="TaskOpsDBModel.Tasks" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="TaskOpsDBModel.Tasks" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" />
         <AssociationConnector Association="TaskOpsDBModel.FK__Execution__TaskI__3F466844" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TaskOpsDBModel.User" Width="1.5" PointX="0.75" PointY="5.625" />
+        <EntityTypeShape EntityType="TaskOpsDBModel.UserTask" Width="1.5" PointX="3" PointY="4.25" />
+        <AssociationConnector Association="TaskOpsDBModel.FK__UserTask__TaskId__4222D4EF" />
+        <AssociationConnector Association="TaskOpsDBModel.FK__UserTask__UserId__4316F928" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

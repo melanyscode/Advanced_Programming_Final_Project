@@ -27,5 +27,7 @@ namespace FinalProject.Data
     
         public virtual DbSet<ExecutionLogs> ExecutionLogs { get; set; }
         public virtual DbSet<Tasks> Tasks { get; set; }
+        public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<UserTask> UserTask { get; set; }
     }
 }
