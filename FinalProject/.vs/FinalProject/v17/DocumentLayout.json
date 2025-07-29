@@ -3,7 +3,15 @@
   "WorkspaceRootPath": "C:\\ProgamacionAvanzada\\ProyectoFinal\\Advanced_Programming_Final_Project\\FinalProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DE0094C3-999C-480A-BA51-13D67036EE48}|Repository\\FinalProject.Repository.csproj|C:\\ProgamacionAvanzada\\ProyectoFinal\\Advanced_Programming_Final_Project\\FinalProject\\repository\\repositorybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{42202672-0F62-4FB2-BC8D-245D2F71F4FE}|FinalProject.Mvc\\FinalProject.Mvc.csproj|c:\\progamacionavanzada\\proyectofinal\\advanced_programming_final_project\\finalproject\\finalproject.mvc\\views\\tasks\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{42202672-0F62-4FB2-BC8D-245D2F71F4FE}|FinalProject.Mvc\\FinalProject.Mvc.csproj|solutionrelative:finalproject.mvc\\views\\tasks\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FDEC575A-C3A7-4614-B8F3-C2E688739E28}|FinalProject.Worker\\FinalProject.Worker.csproj|C:\\ProgamacionAvanzada\\ProyectoFinal\\Advanced_Programming_Final_Project\\FinalProject\\finalproject.worker\\processor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FDEC575A-C3A7-4614-B8F3-C2E688739E28}|FinalProject.Worker\\FinalProject.Worker.csproj|solutionrelative:finalproject.worker\\processor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE0094C3-999C-480A-BA51-13D67036EE48}|Repository\\FinalProject.Repository.csproj|c:\\progamacionavanzada\\proyectofinal\\advanced_programming_final_project\\finalproject\\repository\\repositorybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DE0094C3-999C-480A-BA51-13D67036EE48}|Repository\\FinalProject.Repository.csproj|solutionrelative:repository\\repositorybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -11,12 +19,8 @@
       "RelativeMoniker": "D:0:0:{42202672-0F62-4FB2-BC8D-245D2F71F4FE}|FinalProject.Mvc\\FinalProject.Mvc.csproj|solutionrelative:finalproject.mvc\\controllers\\taskscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8FBDA621-1477-49B3-B9EC-C39DA1AE6F90}|FinalProject.Data\\FinalProject.Data.csproj|c:\\progamacionavanzada\\proyectofinal\\advanced_programming_final_project\\finalproject\\finalproject.data\\tasksmodel.context.tt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "AbsoluteMoniker": "D:0:0:{8FBDA621-1477-49B3-B9EC-C39DA1AE6F90}|FinalProject.Data\\FinalProject.Data.csproj|C:\\ProgamacionAvanzada\\ProyectoFinal\\Advanced_Programming_Final_Project\\FinalProject\\finalproject.data\\tasksmodel.context.tt||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{8FBDA621-1477-49B3-B9EC-C39DA1AE6F90}|FinalProject.Data\\FinalProject.Data.csproj|solutionrelative:finalproject.data\\tasksmodel.context.tt||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FDEC575A-C3A7-4614-B8F3-C2E688739E28}|FinalProject.Worker\\FinalProject.Worker.csproj|c:\\progamacionavanzada\\proyectofinal\\advanced_programming_final_project\\finalproject\\finalproject.worker\\processor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FDEC575A-C3A7-4614-B8F3-C2E688739E28}|FinalProject.Worker\\FinalProject.Worker.csproj|solutionrelative:finalproject.worker\\processor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{42202672-0F62-4FB2-BC8D-245D2F71F4FE}|FinalProject.Mvc\\FinalProject.Mvc.csproj|C:\\ProgamacionAvanzada\\ProyectoFinal\\Advanced_Programming_Final_Project\\FinalProject\\finalproject.mvc\\views\\tasks\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -54,37 +58,49 @@
       "DocumentGroups": [
         {
           "DockedWidth": 33,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\ProgamacionAvanzada\\ProyectoFinal\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject.Mvc\\Views\\Tasks\\Index.cshtml",
+              "RelativeDocumentMoniker": "FinalProject.Mvc\\Views\\Tasks\\Index.cshtml",
+              "ToolTip": "C:\\ProgamacionAvanzada\\ProyectoFinal\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject.Mvc\\Views\\Tasks\\Index.cshtml",
+              "RelativeToolTip": "FinalProject.Mvc\\Views\\Tasks\\Index.cshtml",
+              "ViewState": "AgIAADQAAAAAAAAAAAAAAEcAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-29T03:37:07.169Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "TasksModel.Context.tt",
               "DocumentMoniker": "C:\\ProgamacionAvanzada\\ProyectoFinal\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject.Data\\TasksModel.Context.tt",
               "RelativeDocumentMoniker": "FinalProject.Data\\TasksModel.Context.tt",
               "ToolTip": "C:\\ProgamacionAvanzada\\ProyectoFinal\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject.Data\\TasksModel.Context.tt",
               "RelativeToolTip": "FinalProject.Data\\TasksModel.Context.tt",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-07-28T04:38:15.474Z",
-              "EditorCaption": ""
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001384|",
+              "WhenOpened": "2025-07-28T04:38:15.474Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Processor.cs",
               "DocumentMoniker": "C:\\ProgamacionAvanzada\\ProyectoFinal\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject.Worker\\Processor.cs",
               "RelativeDocumentMoniker": "FinalProject.Worker\\Processor.cs",
               "ToolTip": "C:\\ProgamacionAvanzada\\ProyectoFinal\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject.Worker\\Processor.cs",
               "RelativeToolTip": "FinalProject.Worker\\Processor.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAYwBwAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAxwCEAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-20T03:12:09.503Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Web.config",
               "DocumentMoniker": "C:\\ProgamacionAvanzada\\ProyectoFinal\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject.Mvc\\Web.config",
               "RelativeDocumentMoniker": "FinalProject.Mvc\\Web.config",
@@ -97,7 +113,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "App.config",
               "DocumentMoniker": "C:\\ProgamacionAvanzada\\ProyectoFinal\\Advanced_Programming_Final_Project\\FinalProject\\Repository\\App.config",
               "RelativeDocumentMoniker": "Repository\\App.config",
@@ -109,7 +125,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "TasksController.cs",
               "DocumentMoniker": "C:\\ProgamacionAvanzada\\ProyectoFinal\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject.Mvc\\Controllers\\TasksController.cs",
               "RelativeDocumentMoniker": "FinalProject.Mvc\\Controllers\\TasksController.cs",
@@ -117,12 +133,11 @@
               "RelativeToolTip": "FinalProject.Mvc\\Controllers\\TasksController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-20T01:25:43.68Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-20T01:25:43.68Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Global.asax.cs",
               "DocumentMoniker": "C:\\ProgamacionAvanzada\\ProyectoFinal\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject.Mvc\\Global.asax.cs",
               "RelativeDocumentMoniker": "FinalProject.Mvc\\Global.asax.cs",
@@ -134,7 +149,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "TasksBusiness.cs",
               "DocumentMoniker": "C:\\ProgamacionAvanzada\\ProyectoFinal\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject.Business\\TasksBusiness.cs",
               "RelativeDocumentMoniker": "FinalProject.Business\\TasksBusiness.cs",
@@ -146,7 +161,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "RepositoryBase.cs",
               "DocumentMoniker": "C:\\ProgamacionAvanzada\\ProyectoFinal\\Advanced_Programming_Final_Project\\FinalProject\\Repository\\RepositoryBase.cs",
               "RelativeDocumentMoniker": "Repository\\RepositoryBase.cs",
@@ -159,7 +174,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "App.Config",
               "DocumentMoniker": "C:\\ProgamacionAvanzada\\ProyectoFinal\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject.Data\\App.Config",
               "RelativeDocumentMoniker": "FinalProject.Data\\App.Config",
@@ -171,7 +186,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\ProgamacionAvanzada\\ProyectoFinal\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject.Mvc\\Views\\Tasks\\Create.cshtml",
               "RelativeDocumentMoniker": "FinalProject.Mvc\\Views\\Tasks\\Create.cshtml",
@@ -183,7 +198,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "RepositoryTasks.cs",
               "DocumentMoniker": "C:\\ProgamacionAvanzada\\ProyectoFinal\\Advanced_Programming_Final_Project\\FinalProject\\Repository\\RepositoryTasks.cs",
               "RelativeDocumentMoniker": "Repository\\RepositoryTasks.cs",

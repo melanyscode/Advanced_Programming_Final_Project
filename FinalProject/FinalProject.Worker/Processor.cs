@@ -13,10 +13,22 @@ namespace FinalProject.Worker
     {
         private readonly RepositoryTasks repository = new RepositoryTasks();
 
+        private bool ApplyRules(Tasks t, out bool doNow) 
+        {
+            bool isNull = t == null;
+            doNow = t.ExecutionDate <= DateTime.Now;
+            bool isValidDate = false;
+            if (!doNow)
+                isValidDate = t.ExecutionDate >= DateTime.Now;
+            return isNull; 
+        }
+
         public void Start()
         {
             Task.Run(() =>
             {
+            // T1 not null && friday 7pm (Monday)
+            // T1 not null && friday 7pm TRUE (FRIDAY)
                 while (true)
                 {
                     var task = repository.GetAll()
@@ -25,7 +37,8 @@ namespace FinalProject.Worker
                         .ThenBy(t => t.ExecutionDate)
                         .FirstOrDefault();
 
-                    if (task != null)
+                    var isValid = ApplyRules(task, out bool doNow);
+                    if (isValid && doNow)
                     {
                         task.Status = "Running";
                         task.UpdatedAt = DateTime.Now;
