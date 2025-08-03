@@ -1,0 +1,33 @@
+﻿@model FinalProject.Data.User
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+<h3>Are you sure you want to delete this?</h3>
+
+<div class="details-container">
+    <h4>User</h4>
+    <hr class="custom-divider" />
+    <dl>
+        <dt>@Html.DisplayNameFor(model => model.Username)</dt>
+        <dd>@Html.DisplayFor(model => model.Username)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Password)</dt>
+        <dd>@Html.DisplayFor(model => model.Password)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Role)</dt>
+        <dd>@Html.DisplayFor(model => model.Role)</dd>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            <input type="submit" value="Delete" class="btn btn-action delete" />
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-action back" })
+        </div>
+    }
+</div>

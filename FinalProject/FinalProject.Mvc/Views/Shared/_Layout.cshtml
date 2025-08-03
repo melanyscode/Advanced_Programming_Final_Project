@@ -5,19 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>@ViewBag.Title - Infrastructure Monitor</title>
     <link href="~/Content/Site.css" rel="stylesheet" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
 </head>
+
+
 <body>
     <div class="app-container">
         <aside class="sidebar">
-            <h2>NETKEEP</h2>
+
+            <div style="text-align: center; margin-top: 20px;">
+                <i class="fas fa-network-wired" style="font-size: 32px; color: #00c7c7; "></i>
+                <h2>NETKEEP</h2>
+            </div>
+
+
             <nav>
                 <ul>
-                    <li>@Html.ActionLink("Dashboard", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Tasks", "Index", "Tasks")</li>
-                    <li><a href="#">Logs</a></li>
+                    <li>
+                        <a href="@Url.Action("Index", "Home")">
+                            <i class="fas fa-tachometer-alt"></i> Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index", "Tasks")">
+                            <i class="fas fa-tasks"></i> Tasks
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index", "Users")">
+                            <i class="fas fa-users"></i> Users
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-file-alt"></i> Logs
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index", "SignUp")">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                    </li>
+
                 </ul>
             </nav>
+
         </aside>
 
         <div style="flex:1; display:flex; flex-direction: column; overflow: visible;">
