@@ -18,19 +18,19 @@ namespace FinalProject.Data
         public Tasks()
         {
             this.ExecutionLogs = new HashSet<ExecutionLogs>();
+            this.UserTask = new HashSet<UserTask>();
         }
     
         public int TaskId { get; set; }
         public string TaskName { get; set; }
         public string Priority { get; set; }
-        public System.DateTime ExecutionDate { get; set; }
-        public string SimulatedCommand { get; set; }
-        public string Status { get; set; }
         public Nullable<System.DateTime> CreatedAt { get; set; }
         public Nullable<System.DateTime> UpdatedAt { get; set; }
-        public string Result { get; set; }
+        public string Executable { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ExecutionLogs> ExecutionLogs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserTask> UserTask { get; set; }
     }
 }

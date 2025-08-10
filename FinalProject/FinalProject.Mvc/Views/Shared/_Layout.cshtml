@@ -1,35 +1,70 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewBag.Title - Infrastructure Monitor</title>
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
 </head>
+
+
 <body>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
-        <div class="container">
-            @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                </ul>
+    <div class="app-container">
+        <aside class="sidebar">
+
+            <div style="text-align: center; margin-top: 20px;">
+                <i class="fas fa-network-wired" style="font-size: 32px; color: #00c7c7; "></i>
+                <h2>NETKEEP</h2>
             </div>
+
+
+            <nav>
+                <ul>
+                    <li>
+                        <a href="@Url.Action("Index", "Home")">
+                            <i class="fas fa-tachometer-alt"></i> Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index", "Tasks")">
+                            <i class="fas fa-tasks"></i> Tasks
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index", "Users")">
+                            <i class="fas fa-users"></i> Users
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-file-alt"></i> Logs
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index", "SignUp")">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                    </li>
+
+                </ul>
+            </nav>
+
+        </aside>
+
+        <div style="flex:1; display:flex; flex-direction: column; overflow: visible;">
+            <header class="app-header">
+                SYSTEM MAINTENANCE TASKS
+            </header>
+
+            <main class="content-area">
+                @RenderBody()
+            </main>
+
+
         </div>
-    </nav>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")

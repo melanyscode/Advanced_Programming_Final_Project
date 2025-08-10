@@ -1,0 +1,72 @@
+﻿@model IEnumerable<FinalProject.Data.User>
+
+<link href="~/Content/Site.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "Index";
+    var groupedUsers = Model.GroupBy(u => u.Role);
+}
+
+
+<p>
+    @Html.ActionLink("CREATE NEW", "Create", null, new { @class = "top-link" })
+</p>
+
+@foreach (var group in groupedUsers.OrderBy(g => g.Key))
+{
+    <div class="role-section">
+        <h3>@group.Key Users</h3>
+
+        <div class="user-card-container">
+            @foreach (var user in group)
+            {
+                <div class="user-card">
+                    <h4>@user.Username</h4>
+                    <div class="user-info">
+                        <p><span>Password:</span> @user.Password</p>
+                        <p><span>Role:</span> @user.Role</p>
+                    </div>
+
+                    <div class="action-buttons">
+                        @Html.ActionLink("Edit", "Edit", new { id = user.UserId }, new { @class = "btn-action edit" })
+                        @Html.ActionLink("Details", "Details", new { id = user.UserId }, new { @class = "btn-action details" })
+                        @Html.ActionLink("Delete", "Delete", new { id = user.UserId }, new { @class = "btn-action delete" })
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+
+}
+
+<section class="permissions-section">
+    <h2>User Roles and Permissions</h2>
+
+    <div class="permissions-container">
+        <div class="permission-card">
+            <h3>Administrator (Admin)</h3>
+            <ul>
+                <li>✔ Full access to user and task management</li>
+                <li>✔ Can assign and revoke user roles</li>
+                <li>✔ Modify system-level settings</li>
+                <li>✔ Access audit logs and performance metrics</li>
+                <li>✔ Control dashboard modules and widgets</li>
+                <li>✔ Override any user-level permissions</li>
+            </ul>
+        </div>
+
+        <div class="permission-card">
+            <h3>Operator</h3>
+            <ul>
+                <li>✔ Access to assigned tasks only</li>
+                <li>✔ Can update personal profile and status</li>
+                <li>✔ Limited dashboard access (view only)</li>
+                <li>✖ No permission to create, edit, or assign tasks</li>
+                <li>✖ No access to administrative logs or settings</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+

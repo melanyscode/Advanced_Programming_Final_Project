@@ -86,11 +86,6 @@ C:\ProgamacionAvanzada\ProyectoFinal\Advanced_Programming_Final_Project\FinalPro
 C:\ProgamacionAvanzada\ProyectoFinal\Advanced_Programming_Final_Project\FinalProject\FinalProject.Mvc\bin\EntityFramework.xml
 C:\ProgamacionAvanzada\ProyectoFinal\Advanced_Programming_Final_Project\FinalProject\FinalProject.Mvc\bin\EntityFramework.SqlServer.dll
 C:\ProgamacionAvanzada\ProyectoFinal\Advanced_Programming_Final_Project\FinalProject\FinalProject.Mvc\bin\EntityFramework.SqlServer.xml
-<<<<<<< Updated upstream
-C:\ProgamacionAvanzada\ProyectoFinal\Advanced_Programming_Final_Project\FinalProject\FinalProject.Mvc\bin\FinalProject.Worker.dll
-C:\ProgamacionAvanzada\ProyectoFinal\Advanced_Programming_Final_Project\FinalProject\FinalProject.Mvc\bin\Repository.dll
-C:\ProgamacionAvanzada\ProyectoFinal\Advanced_Programming_Final_Project\FinalProject\FinalProject.Mvc\bin\FinalProject.Worker.pdb
-=======
 C:\Users\usuario\Downloads\Advanced_Programming_Final_Project\FinalProject\FinalProject.Mvc\bin\FinalProject.Mvc.dll.config
 C:\Users\usuario\Downloads\Advanced_Programming_Final_Project\FinalProject\FinalProject.Mvc\bin\FinalProject.Mvc.dll
 C:\Users\usuario\Downloads\Advanced_Programming_Final_Project\FinalProject\FinalProject.Mvc\bin\FinalProject.Mvc.pdb
@@ -182,7 +177,3 @@ C:\Users\usuario\Downloads\Advanced_Programming_Final_Project\FinalProject\Final
 C:\Users\usuario\Downloads\Advanced_Programming_Final_Project\FinalProject\FinalProject.Mvc\obj\Debug\FinalPro.A0A37791.Up2Date
 C:\Users\usuario\Downloads\Advanced_Programming_Final_Project\FinalProject\FinalProject.Mvc\obj\Debug\FinalProject.Mvc.dll
 C:\Users\usuario\Downloads\Advanced_Programming_Final_Project\FinalProject\FinalProject.Mvc\obj\Debug\FinalProject.Mvc.pdb
-C:\ProgamacionAvanzada\ProyectoFinal\Advanced_Programming_Final_Project\FinalProject\FinalProject.Mvc\bin\Repository.dll
->>>>>>> Stashed changes
-C:\ProgamacionAvanzada\ProyectoFinal\Advanced_Programming_Final_Project\FinalProject\FinalProject.Mvc\bin\Repository.pdb
-C:\ProgamacionAvanzada\ProyectoFinal\Advanced_Programming_Final_Project\FinalProject\FinalProject.Mvc\bin\Repository.dll.config

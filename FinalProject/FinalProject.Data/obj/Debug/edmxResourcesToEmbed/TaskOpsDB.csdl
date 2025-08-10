@@ -18,12 +18,11 @@
     <Property Name="TaskId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TaskName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Priority" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="ExecutionDate" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="SimulatedCommand" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Status" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="CreatedAt" Type="DateTime" Precision="3" />
     <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
     <NavigationProperty Name="ExecutionLogs" Relationship="Self.FK__Execution__TaskI__3F466844" FromRole="Tasks" ToRole="ExecutionLogs" />
+    <Property Name="Executable" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="UserTask" Relationship="TaskOpsDBModel.FK__UserTask__TaskId__4222D4EF" FromRole="Tasks" ToRole="UserTask" />
   </EntityType>
   <Association Name="FK__Execution__TaskI__3F466844">
     <End Role="Tasks" Type="Self.Tasks" Multiplicity="1">
@@ -46,5 +45,66 @@
       <End Role="Tasks" EntitySet="Tasks" />
       <End Role="ExecutionLogs" EntitySet="ExecutionLogs" />
     </AssociationSet>
+    <EntitySet Name="User" EntityType="TaskOpsDBModel.User" />
+    <EntitySet Name="UserTask" EntityType="TaskOpsDBModel.UserTask" />
+    <AssociationSet Name="FK__UserTask__TaskId__4222D4EF" Association="TaskOpsDBModel.FK__UserTask__TaskId__4222D4EF">
+      <End Role="Tasks" EntitySet="Tasks" />
+      <End Role="UserTask" EntitySet="UserTask" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserTask__UserId__4316F928" Association="TaskOpsDBModel.FK__UserTask__UserId__4316F928">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserTask" EntitySet="UserTask" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Role" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="UserTask" Relationship="TaskOpsDBModel.FK__UserTask__UserId__4316F928" FromRole="User" ToRole="UserTask" />
+  </EntityType>
+  <EntityType Name="UserTask">
+    <Key>
+      <PropertyRef Name="UserTaskId" />
+    </Key>
+    <Property Name="UserTaskId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TaskId" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Result" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ExecutionDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Tasks" Relationship="TaskOpsDBModel.FK__UserTask__TaskId__4222D4EF" FromRole="UserTask" ToRole="Tasks" />
+    <NavigationProperty Name="User" Relationship="TaskOpsDBModel.FK__UserTask__UserId__4316F928" FromRole="UserTask" ToRole="User" />
+  </EntityType>
+  <Association Name="FK__UserTask__TaskId__4222D4EF">
+    <End Type="TaskOpsDBModel.Tasks" Role="Tasks" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="TaskOpsDBModel.UserTask" Role="UserTask" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tasks">
+        <PropertyRef Name="TaskId" />
+      </Principal>
+      <Dependent Role="UserTask">
+        <PropertyRef Name="TaskId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserTask__UserId__4316F928">
+    <End Type="TaskOpsDBModel.User" Role="User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="TaskOpsDBModel.UserTask" Role="UserTask" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserTask">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

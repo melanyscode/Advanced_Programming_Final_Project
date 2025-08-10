@@ -55,53 +55,61 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="ExecutionLogs.cs">
-      <DependentUpon>TasksModel.tt</DependentUpon>
+      <DependentUpon>TaskOpsDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TaskOpsDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TaskOpsDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TaskOpsDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TaskOpsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TaskOpsDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TaskOpsDB.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Tasks.cs">
-      <DependentUpon>TasksModel.tt</DependentUpon>
+      <DependentUpon>TaskOpsDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="TasksModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TasksModel.Context.tt</DependentUpon>
+    <Compile Include="User.cs">
+      <DependentUpon>TaskOpsDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="TasksModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TasksModel.tt</DependentUpon>
+    <Compile Include="UserTask.cs">
+      <DependentUpon>TaskOpsDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="TasksModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TasksModel.edmx</DependentUpon>
-    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="TaskOpsDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TaskOpsDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
     <None Include="packages.config" />
-    <EntityDeploy Include="TasksModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>TasksModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="TasksModel.edmx.diagram">
-      <DependentUpon>TasksModel.edmx</DependentUpon>
+    <None Include="TaskOpsDB.edmx.diagram">
+      <DependentUpon>TaskOpsDB.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="TaskOpsDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TaskOpsDB.edmx</DependentUpon>
+      <LastGenOutput>TaskOpsDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="TaskOpsDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TaskOpsDB.edmx</DependentUpon>
+      <LastGenOutput>TaskOpsDB.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="TasksModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TasksModel.edmx</DependentUpon>
-      <LastGenOutput>TasksModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="TasksModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TasksModel.edmx</DependentUpon>
-      <LastGenOutput>TasksModel.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

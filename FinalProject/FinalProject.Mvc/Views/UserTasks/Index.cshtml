@@ -1,0 +1,65 @@
+﻿@model IEnumerable<FinalProject.Data.UserTask>
+
+<link href="~/Content/Site.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "Index";
+    var groupedUserTasks = Model.GroupBy(u => u.Status);
+}
+
+<div class="switch-section">
+    <div class="switch-buttons">
+        <a href="https://localhost:44368/Tasks/Index" class="switch-btn">Priority</a>
+        <a href="https://localhost:44368/UserTasks/Index" class="switch-btn active">Status</a>
+    </div>
+    <hr class="custom-divider" />
+</div>
+
+<p>
+    @Html.ActionLink("CREATE NEW", "Create", null, new { @class = "top-link" })
+</p>
+
+@foreach (var group in groupedUserTasks.OrderBy(g => g.Key))
+{
+    <div style="margin-bottom: 40px;">
+        <h3 style="margin-top: 30px;">@group.Key Status</h3>
+
+        <table class="table" style="margin-top: 15px;">
+            <tr>
+                <th style="width: 200px;">@Html.DisplayNameFor(model => model.Status)</th>
+                <th style="width: 250px;">@Html.DisplayNameFor(model => model.Result)</th>
+                <th style="width: 250px;">@Html.DisplayNameFor(model => model.ExecutionDate)</th>
+                <th style="width: 300px;">@Html.DisplayNameFor(model => model.Tasks.TaskName)</th>
+                <th>@Html.DisplayNameFor(model => model.User.Username)</th>
+                <th>Actions</th>
+            </tr>
+
+            @foreach (var item in group)
+            {
+                var statusClass = item.Status == "Pending" ? "mybadge-pending" :
+                                  item.Status == "Running" ? "mybadge-running" :
+                                  item.Status == "Completed" ? "mybadge-completed" :
+                                  item.Status == "Failed" ? "mybadge-failed" : "mybadge-pending";
+
+                <tr>
+                    <td style="text-align: center;">
+                        <span class="mybadge @(statusClass)">
+                            @Html.DisplayFor(modelItem => item.Status)
+                        </span>
+                    </td>
+
+                    <td style="text-align: center;">@Html.DisplayFor(modelItem => item.Result)</td>
+                    <td style="text-align: center;">@Html.DisplayFor(modelItem => item.ExecutionDate)</td>
+                    <td style="text-align: center;">@Html.DisplayFor(modelItem => item.Tasks.TaskName)</td>
+                    <td style="text-align: center;">@Html.DisplayFor(modelItem => item.User.Username)</td>
+                    <td class="action-buttons">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.UserTaskId }, new { @class = "btn-action edit" })
+                        @Html.ActionLink("Details", "Details", new { id = item.UserTaskId }, new { @class = "btn-action details" })
+                        @Html.ActionLink("Delete", "Delete", new { id = item.UserTaskId }, new { @class = "btn-action delete" })
+                    </td>
+                </tr>
+            }
+        </table>
+        <hr style="margin-top: 30px;" />
+    </div>
+}
