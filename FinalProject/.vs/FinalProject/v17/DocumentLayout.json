@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\ProgamacionAvanzada\\ProyectoFinal\\Advanced_Programming_Final_Project\\FinalProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{42202672-0F62-4FB2-BC8D-245D2F71F4FE}|FinalProject.Mvc\\FinalProject.Mvc.csproj|c:\\progamacionavanzada\\proyectofinal\\advanced_programming_final_project\\finalproject\\finalproject.mvc\\views\\tasks\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{42202672-0F62-4FB2-BC8D-245D2F71F4FE}|FinalProject.Mvc\\FinalProject.Mvc.csproj|solutionrelative:finalproject.mvc\\views\\tasks\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FDEC575A-C3A7-4614-B8F3-C2E688739E28}|FinalProject.Worker\\FinalProject.Worker.csproj|C:\\ProgamacionAvanzada\\ProyectoFinal\\Advanced_Programming_Final_Project\\FinalProject\\finalproject.worker\\processor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FDEC575A-C3A7-4614-B8F3-C2E688739E28}|FinalProject.Worker\\FinalProject.Worker.csproj|c:\\progamacionavanzada\\proyectofinal\\advanced_programming_final_project\\finalproject\\finalproject.worker\\processor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FDEC575A-C3A7-4614-B8F3-C2E688739E28}|FinalProject.Worker\\FinalProject.Worker.csproj|solutionrelative:finalproject.worker\\processor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DE0094C3-999C-480A-BA51-13D67036EE48}|Repository\\FinalProject.Repository.csproj|c:\\progamacionavanzada\\proyectofinal\\advanced_programming_final_project\\finalproject\\repository\\repositorybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DE0094C3-999C-480A-BA51-13D67036EE48}|Repository\\FinalProject.Repository.csproj|C:\\ProgamacionAvanzada\\ProyectoFinal\\Advanced_Programming_Final_Project\\FinalProject\\repository\\repositorybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DE0094C3-999C-480A-BA51-13D67036EE48}|Repository\\FinalProject.Repository.csproj|solutionrelative:repository\\repositorybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{42202672-0F62-4FB2-BC8D-245D2F71F4FE}|FinalProject.Mvc\\FinalProject.Mvc.csproj|C:\\ProgamacionAvanzada\\ProyectoFinal\\Advanced_Programming_Final_Project\\FinalProject\\finalproject.mvc\\views\\tasks\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{42202672-0F62-4FB2-BC8D-245D2F71F4FE}|FinalProject.Mvc\\FinalProject.Mvc.csproj|solutionrelative:finalproject.mvc\\views\\tasks\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{42202672-0F62-4FB2-BC8D-245D2F71F4FE}|FinalProject.Mvc\\FinalProject.Mvc.csproj|C:\\ProgamacionAvanzada\\ProyectoFinal\\Advanced_Programming_Final_Project\\FinalProject\\finalproject.mvc\\controllers\\taskscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -58,11 +58,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 33,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\ProgamacionAvanzada\\ProyectoFinal\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject.Mvc\\Views\\Tasks\\Index.cshtml",
               "RelativeDocumentMoniker": "FinalProject.Mvc\\Views\\Tasks\\Index.cshtml",
@@ -70,8 +70,7 @@
               "RelativeToolTip": "FinalProject.Mvc\\Views\\Tasks\\Index.cshtml",
               "ViewState": "AgIAADQAAAAAAAAAAAAAAEcAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-29T03:37:07.169Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-29T03:37:07.169Z"
             },
             {
               "$type": "Document",
@@ -87,13 +86,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Processor.cs",
               "DocumentMoniker": "C:\\ProgamacionAvanzada\\ProyectoFinal\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject.Worker\\Processor.cs",
               "RelativeDocumentMoniker": "FinalProject.Worker\\Processor.cs",
               "ToolTip": "C:\\ProgamacionAvanzada\\ProyectoFinal\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject.Worker\\Processor.cs",
               "RelativeToolTip": "FinalProject.Worker\\Processor.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAxwCEAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-20T03:12:09.503Z",
               "EditorCaption": ""
@@ -161,16 +160,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "RepositoryBase.cs",
               "DocumentMoniker": "C:\\ProgamacionAvanzada\\ProyectoFinal\\Advanced_Programming_Final_Project\\FinalProject\\Repository\\RepositoryBase.cs",
               "RelativeDocumentMoniker": "Repository\\RepositoryBase.cs",
               "ToolTip": "C:\\ProgamacionAvanzada\\ProyectoFinal\\Advanced_Programming_Final_Project\\FinalProject\\Repository\\RepositoryBase.cs",
               "RelativeToolTip": "Repository\\RepositoryBase.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-17T03:45:34.786Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-17T03:45:34.786Z"
             },
             {
               "$type": "Document",

@@ -11,72 +11,79 @@ namespace FinalProject.Worker
 {
     public class Processor
     {
-        private readonly RepositoryTasks repository = new RepositoryTasks();
+        private readonly RepositoryUserTask repository = new RepositoryUserTask();
 
-        private bool ApplyRules(Tasks t, out bool doNow) 
+        private bool ApplyRules(UserTask ut, out bool doNow)
         {
-            bool isNull = t == null;
-            doNow = t.ExecutionDate <= DateTime.Now;
-            bool isValidDate = false;
-            if (!doNow)
-                isValidDate = t.ExecutionDate >= DateTime.Now;
-            return isNull; 
+            doNow = false;
+            if (ut == null)
+                return false;
+            doNow = ut.ExecutionDate <= DateTime.Now;
+            return true;
         }
 
         public void Start()
         {
             Task.Run(() =>
             {
-            // T1 not null && friday 7pm (Monday)
-            // T1 not null && friday 7pm TRUE (FRIDAY)
                 while (true)
                 {
-                    var task = repository.GetAll()
-                        .Where(t => t.Status == "Pending")
-                        .OrderByDescending(t => t.Priority)
-                        .ThenBy(t => t.ExecutionDate)
+   
+                    var userTask = repository.GetAll()
+                        .Where(ut => ut.Status == "Pending")
+                        .OrderBy(ut => ut.ExecutionDate)
                         .FirstOrDefault();
 
-                    var isValid = ApplyRules(task, out bool doNow);
+                    var isValid = ApplyRules(userTask, out bool doNow);
                     if (isValid && doNow)
                     {
-                        task.Status = "Running";
-                        task.UpdatedAt = DateTime.Now;
-                        repository.Update(task);
+                        userTask.Status = "Running";
+                        repository.Update(userTask);
                         repository.Save();
 
                         try
                         {
-                            var psi = new ProcessStartInfo
+                          
+                            var taskRepo = new RepositoryTasks();
+                            var task = taskRepo.GetById(userTask.TaskId);
+
+                            if (task != null)
                             {
-                                FileName = "powershell.exe",
-                                Arguments = $"-ExecutionPolicy Bypass -File \"C:\\Scripts\\{task.SimulatedCommand}\"",
-                                RedirectStandardOutput = true,
-                                RedirectStandardError = true,
-                                UseShellExecute = false,
-                                CreateNoWindow = true
-                            };
+                                var psi = new ProcessStartInfo
+                                {
+                                    FileName = "powershell.exe",
+                                    Arguments = $"-ExecutionPolicy Bypass -File \"C:\\Scripts\\{task.Executable}\"",
+                                    RedirectStandardOutput = true,
+                                    RedirectStandardError = true,
+                                    UseShellExecute = false,
+                                    CreateNoWindow = true
+                                };
 
-                            var process = Process.Start(psi);
-                            string output = process.StandardOutput.ReadToEnd();
-                            string error = process.StandardError.ReadToEnd();
-                            process.WaitForExit();
+                                var process = Process.Start(psi);
+                                string output = process.StandardOutput.ReadToEnd();
+                                string error = process.StandardError.ReadToEnd();
+                                process.WaitForExit();
 
-                            task.Status = process.ExitCode == 0 ? "Completed" : "Failed";
-                            task.Result = string.IsNullOrWhiteSpace(error) ? output : error;
+                                userTask.Status = process.ExitCode == 0 ? "Completed" : "Failed";
+                                userTask.Result = string.IsNullOrWhiteSpace(error) ? output : error;
+                            }
+                            else
+                            {
+                                userTask.Status = "Failed";
+                                userTask.Result = "No se encontró la definición de la tarea.";
+                            }
                         }
                         catch (Exception ex)
                         {
-                            task.Status = "Failed";
-                            task.Result = ex.Message;
+                            userTask.Status = "Failed";
+                            userTask.Result = ex.Message;
                         }
 
-                        task.UpdatedAt = DateTime.Now;
-                        repository.Update(task);
+                        repository.Update(userTask);
                         repository.Save();
                     }
 
-                    Thread.Sleep(5000); 
+                    Thread.Sleep(5000);
                 }
             });
         }
