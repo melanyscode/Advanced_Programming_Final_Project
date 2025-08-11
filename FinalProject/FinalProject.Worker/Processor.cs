@@ -11,15 +11,42 @@ namespace FinalProject.Worker
 {
     public class Processor
     {
-        private readonly RepositoryUserTask repository = new RepositoryUserTask();
+        private readonly RepositoryUserTasks repository = new RepositoryUserTasks();
 
         private bool ApplyRules(UserTask ut, out bool doNow)
         {
             doNow = false;
-            if (ut == null)
-                return false;
-            doNow = ut.ExecutionDate <= DateTime.Now;
-            return true;
+            if (ut == null) return false;
+
+            if (!ut.LastExecution.HasValue)
+            {
+                if (ut.ExecutionTime.HasValue && ut.RepeatIntervalHours == 24)
+                {
+                    var todayExec = DateTime.Today.Add(ut.ExecutionTime.Value);
+                    doNow = DateTime.Now >= todayExec;
+                }
+                else
+                {
+                    doNow = ut.ExecutionDate <= DateTime.Now;
+                }
+                return true;
+            }
+            if (ut.ExecutionTime.HasValue && ut.RepeatIntervalHours == 24)
+            {
+                var nextExec = ut.LastExecution.Value.Date
+                    .AddDays(1)
+                    .Add(ut.ExecutionTime.Value);
+                doNow = DateTime.Now >= nextExec;
+                return true;
+            }
+            if (ut.RepeatIntervalHours.HasValue && ut.RepeatIntervalHours > 0)
+            {
+                var nextExec = ut.LastExecution.Value.AddMinutes(ut.RepeatIntervalHours.Value);
+                doNow = DateTime.Now >= nextExec;
+                return true;
+            }
+            doNow = false;
+            return false;
         }
 
         public void Start()
@@ -28,62 +55,92 @@ namespace FinalProject.Worker
             {
                 while (true)
                 {
-   
                     var userTask = repository.GetAll()
-                        .Where(ut => ut.Status == "Pending")
-                        .OrderBy(ut => ut.ExecutionDate)
-                        .FirstOrDefault();
-
-                    var isValid = ApplyRules(userTask, out bool doNow);
-                    if (isValid && doNow)
+                        .Where(ut => ut.Status == "Pending" || ut.Status == "Completed")
+                        .OrderBy(ut => ut.ExecutionDate).ToList();
+                    foreach(var ut in userTask)
                     {
-                        userTask.Status = "Running";
-                        repository.Update(userTask);
-                        repository.Save();
+                        var isValid = ApplyRules(ut, out bool doNow);
 
-                        try
+                        if (isValid && doNow || ut.Status == "Pending")
                         {
-                          
-                            var taskRepo = new RepositoryTasks();
-                            var task = taskRepo.GetById(userTask.TaskId);
+                            ut.Status = "Running";
+                            repository.Update(ut);
+                            repository.Save();
 
-                            if (task != null)
+                            try
                             {
-                                var psi = new ProcessStartInfo
+                                var taskRepo = new RepositoryTasks();
+                                var task = taskRepo.GetById(ut.TaskId);
+                                var userTaskResultsRepo = new RepositoryUserTaskResults();
+                                var resultHistory = new UserTaskResults();
+
+                                if (task != null)
                                 {
-                                    FileName = "powershell.exe",
-                                    Arguments = $"-ExecutionPolicy Bypass -File \"C:\\Scripts\\{task.Executable}\"",
-                                    RedirectStandardOutput = true,
-                                    RedirectStandardError = true,
-                                    UseShellExecute = false,
-                                    CreateNoWindow = true
-                                };
+                                    var psi = new ProcessStartInfo
+                                    {
+                                        FileName = "powershell.exe",
+                                        Arguments = $"-ExecutionPolicy Bypass -File \"C:\\Scripts\\{task.Executable}\"",
+                                        RedirectStandardOutput = true,
+                                        RedirectStandardError = true,
+                                        UseShellExecute = false,
+                                        CreateNoWindow = true
+                                    };
 
-                                var process = Process.Start(psi);
-                                string output = process.StandardOutput.ReadToEnd();
-                                string error = process.StandardError.ReadToEnd();
-                                process.WaitForExit();
+                                    var process = Process.Start(psi);
+                                    string output = process.StandardOutput.ReadToEnd();
+                                    string error = process.StandardError.ReadToEnd();
+                                    process.WaitForExit();
 
-                                userTask.Status = process.ExitCode == 0 ? "Completed" : "Failed";
-                                userTask.Result = string.IsNullOrWhiteSpace(error) ? output : error;
+                                    ut.Status = process.ExitCode == 0 ? "Completed" : "Failed";
+                                    ut.Result = string.IsNullOrWhiteSpace(error) ? output : error;
+                                    ut.LastExecution = DateTime.Now;
+
+                                    repository.Update(ut);
+                                    repository.Save();
+                                    try
+                                    {
+                                        resultHistory = new UserTaskResults
+                                        {
+                                            UserTaskId = ut.UserTaskId,
+                                            ExecutionDate = ut.LastExecution.Value,
+                                            ResultValue = ut.Result
+                                        };
+                                        userTaskResultsRepo.Add(resultHistory);
+                                        userTaskResultsRepo.Save();
+                                    }catch(Exception ex)
+                                    {
+                                        Debug.WriteLine($"Error guardando historial: {ex.Message}");
+                                    }
+                                    
+                                    Debug.WriteLine($"ejecutando tarea {ut.UserTaskId}");
+                                }
+                                else
+                                {
+                                    ut.Status = "Failed";
+                                    ut.Result = "Tasks doesn't exist";
+
+                                    repository.Update(ut);
+                                    repository.Save();
+                                }
                             }
-                            else
+                            catch (Exception ex)
                             {
-                                userTask.Status = "Failed";
-                                userTask.Result = "No se encontró la definición de la tarea.";
+                                ut.Status = "Failed";
+                                ut.Result = ex.Message;
+
+                                repository.Update(ut);
+                                repository.Save();
+                                Debug.WriteLine($"Error ejecutando tarea {ut.UserTaskId}: {ex}");
                             }
-                        }
-                        catch (Exception ex)
-                        {
-                            userTask.Status = "Failed";
-                            userTask.Result = ex.Message;
+
+                            repository.Update(ut);
+                            repository.Save();
                         }
 
-                        repository.Update(userTask);
-                        repository.Save();
                     }
 
-                    Thread.Sleep(5000);
+                    Thread.Sleep(5000); 
                 }
             });
         }

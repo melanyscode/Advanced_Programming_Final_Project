@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="TaskOpsDBModelStoreContainer" CdmEntityContainer="TaskOpsDBEntities">
+  <EntityContainerMapping StorageEntityContainer="TaskOpsDBStoreContainer" CdmEntityContainer="TaskOpsDBEntities">
     <EntitySetMapping Name="ExecutionLogs">
-      <EntityTypeMapping TypeName="TaskOpsDBModel.ExecutionLogs">
+      <EntityTypeMapping TypeName="TaskOpsDB.ExecutionLogs">
         <MappingFragment StoreEntitySet="ExecutionLogs">
           <ScalarProperty Name="LogId" ColumnName="LogId" />
           <ScalarProperty Name="TaskId" ColumnName="TaskId" />
@@ -13,36 +13,50 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Tasks">
-      <EntityTypeMapping TypeName="TaskOpsDBModel.Tasks">
+      <EntityTypeMapping TypeName="TaskOpsDB.Tasks">
         <MappingFragment StoreEntitySet="Tasks">
-          <ScalarProperty Name="Executable" ColumnName="Executable" />
           <ScalarProperty Name="TaskId" ColumnName="TaskId" />
           <ScalarProperty Name="TaskName" ColumnName="TaskName" />
           <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="Executable" ColumnName="Executable" />
           <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
           <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="User">
-      <EntityTypeMapping TypeName="TaskOpsDBModel.User">
+      <EntityTypeMapping TypeName="TaskOpsDB.User">
         <MappingFragment StoreEntitySet="User">
-          <ScalarProperty Name="Role" ColumnName="Role" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="Username" ColumnName="Username" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="UserTask">
-      <EntityTypeMapping TypeName="TaskOpsDBModel.UserTask">
+      <EntityTypeMapping TypeName="TaskOpsDB.UserTask">
         <MappingFragment StoreEntitySet="UserTask">
-          <ScalarProperty Name="ExecutionDate" ColumnName="ExecutionDate" />
+          <ScalarProperty Name="Chart" ColumnName="Chart" />
           <ScalarProperty Name="Result" ColumnName="Result" />
-          <ScalarProperty Name="Status" ColumnName="Status" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+          <ScalarProperty Name="ExecutionTime" ColumnName="ExecutionTime" />
+          <ScalarProperty Name="RepeatIntervalHours" ColumnName="RepeatIntervalHours" />
+          <ScalarProperty Name="LastExecution" ColumnName="LastExecution" />
           <ScalarProperty Name="UserTaskId" ColumnName="UserTaskId" />
+          <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ExecutionDate" ColumnName="ExecutionDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserTaskResults">
+      <EntityTypeMapping TypeName="TaskOpsDB.UserTaskResults">
+        <MappingFragment StoreEntitySet="UserTaskResults">
+          <ScalarProperty Name="ResultValue" ColumnName="ResultValue" />
+          <ScalarProperty Name="ExecutionDate" ColumnName="ExecutionDate" />
+          <ScalarProperty Name="UserTaskId" ColumnName="UserTaskId" />
+          <ScalarProperty Name="ResultId" ColumnName="ResultId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

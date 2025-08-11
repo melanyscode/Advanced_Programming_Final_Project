@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1b67a49f9c8e4223b2c5706520a88fe6" Name="Diagram1">
+        <EntityTypeShape EntityType="TaskOpsDB.ExecutionLogs" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TaskOpsDB.Tasks" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TaskOpsDB.User" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TaskOpsDB.UserTask" Width="1.5" PointX="6" PointY="3.5" IsExpanded="true" />
+        <AssociationConnector Association="TaskOpsDB.FK__Execution__TaskI__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="TaskOpsDB.FK__UserTask__TaskId__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="TaskOpsDB.FK__UserTask__UserId__4316F928" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TaskOpsDB.UserTaskResults" Width="1.5" PointX="8.25" PointY="4.125" />
+        <AssociationConnector Association="TaskOpsDB.FK__UserTaskR__UserT__693CA210" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

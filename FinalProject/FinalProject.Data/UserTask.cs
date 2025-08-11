@@ -14,14 +14,26 @@ namespace FinalProject.Data
     
     public partial class UserTask
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public UserTask()
+        {
+            this.UserTaskResults = new HashSet<UserTaskResults>();
+        }
+    
         public int UserTaskId { get; set; }
         public int TaskId { get; set; }
         public int UserId { get; set; }
         public string Status { get; set; }
-        public string Result { get; set; }
         public Nullable<System.DateTime> ExecutionDate { get; set; }
+        public Nullable<System.DateTime> LastExecution { get; set; }
+        public Nullable<int> RepeatIntervalHours { get; set; }
+        public Nullable<System.TimeSpan> ExecutionTime { get; set; }
+        public string Result { get; set; }
+        public int Chart { get; set; }
     
         public virtual Tasks Tasks { get; set; }
         public virtual User User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserTaskResults> UserTaskResults { get; set; }
     }
 }
