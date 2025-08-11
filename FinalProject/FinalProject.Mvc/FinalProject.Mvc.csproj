@@ -128,14 +128,16 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\SignUpController.cs" />
     <Compile Include="Controllers\TasksController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\UserTasksController.cs" />
+    <Compile Include="Filter\RoleFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DashboardView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -202,12 +204,11 @@
     <Content Include="Views\UserTasks\Details.cshtml" />
     <Content Include="Views\UserTasks\Edit.cshtml" />
     <Content Include="Views\UserTasks\Index.cshtml" />
-    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\SignUp\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
@@ -244,6 +245,14 @@
     <ProjectReference Include="..\FinalProject.Data\FinalProject.Data.csproj">
       <Project>{8fbda621-1477-49b3-b9ec-c39da1ae6f90}</Project>
       <Name>FinalProject.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FinalProject.Worker\FinalProject.Worker.csproj">
+      <Project>{fdec575a-c3a7-4614-b8f3-c2e688739e28}</Project>
+      <Name>FinalProject.Worker</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Repository\FinalProject.Repository.csproj">
+      <Project>{DE0094C3-999C-480A-BA51-13D67036EE48}</Project>
+      <Name>FinalProject.Repository</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

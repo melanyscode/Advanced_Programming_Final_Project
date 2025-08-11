@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="TaskOpsDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="TaskOpsDB.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ExecutionLogs">
           <Key>
             <PropertyRef Name="LogId" />
@@ -45,6 +45,154 @@
           <Property Name="Status" Type="nvarchar" MaxLength="15" Nullable="false" />
           <Property Name="Result" Type="nvarchar(max)" />
           <Property Name="ExecutionDate" Type="datetime" />
+          <Property Name="LastExecution" Type="datetime" />
+          <Property Name="RepeatIntervalHours" Type="int" />
+          <Property Name="ExecutionTime" Type="time" Precision="7" />
+          <Property Name="Chart" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserTaskResults">
+          <Key>
+            <PropertyRef Name="ResultId" />
+          </Key>
+          <Property Name="ResultId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserTaskId" Type="int" Nullable="false" />
+          <Property Name="ExecutionDate" Type="datetime" Nullable="false" />
+          <Property Name="ResultValue" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK__Execution__TaskI__47DBAE45">
+          <End Role="Tasks" Type="Self.Tasks" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ExecutionLogs" Type="Self.ExecutionLogs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tasks">
+              <PropertyRef Name="TaskId" />
+            </Principal>
+            <Dependent Role="ExecutionLogs">
+              <PropertyRef Name="TaskId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserTask__TaskId__6EF57B66">
+          <End Role="Tasks" Type="Self.Tasks" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UserTask" Type="Self.UserTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tasks">
+              <PropertyRef Name="TaskId" />
+            </Principal>
+            <Dependent Role="UserTask">
+              <PropertyRef Name="TaskId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserTask__UserId__6FE99F9F">
+          <End Role="User" Type="Self.User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UserTask" Type="Self.UserTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserTask">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserTaskR__UserT__73BA3083">
+          <End Role="UserTask" Type="Self.UserTask" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UserTaskResults" Type="Self.UserTaskResults" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserTask">
+              <PropertyRef Name="UserTaskId" />
+            </Principal>
+            <Dependent Role="UserTaskResults">
+              <PropertyRef Name="UserTaskId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TaskOpsDBStoreContainer">
+          <EntitySet Name="ExecutionLogs" EntityType="Self.ExecutionLogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tasks" EntityType="Self.Tasks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserTask" EntityType="Self.UserTask" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserTaskResults" EntityType="Self.UserTaskResults" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Execution__TaskI__47DBAE45" Association="Self.FK__Execution__TaskI__47DBAE45">
+            <End Role="Tasks" EntitySet="Tasks" />
+            <End Role="ExecutionLogs" EntitySet="ExecutionLogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserTask__TaskId__6EF57B66" Association="Self.FK__UserTask__TaskId__6EF57B66">
+            <End Role="Tasks" EntitySet="Tasks" />
+            <End Role="UserTask" EntitySet="UserTask" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserTask__UserId__6FE99F9F" Association="Self.FK__UserTask__UserId__6FE99F9F">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserTask" EntitySet="UserTask" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserTaskR__UserT__73BA3083" Association="Self.FK__UserTaskR__UserT__73BA3083">
+            <End Role="UserTask" EntitySet="UserTask" />
+            <End Role="UserTaskResults" EntitySet="UserTaskResults" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TaskOpsDB" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ExecutionLogs">
+          <Key>
+            <PropertyRef Name="LogId" />
+          </Key>
+          <Property Name="LogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TaskId" Type="Int32" Nullable="false" />
+          <Property Name="ExecutionTime" Type="DateTime" Precision="3" />
+          <Property Name="ExecutionStatus" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OutputMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Tasks" Relationship="Self.FK__Execution__TaskI__47DBAE45" FromRole="ExecutionLogs" ToRole="Tasks" />
+        </EntityType>
+        <EntityType Name="Tasks">
+          <Key>
+            <PropertyRef Name="TaskId" />
+          </Key>
+          <Property Name="TaskId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TaskName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Priority" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Executable" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ExecutionLogs" Relationship="Self.FK__Execution__TaskI__47DBAE45" FromRole="Tasks" ToRole="ExecutionLogs" />
+          <NavigationProperty Name="UserTask" Relationship="Self.FK__UserTask__TaskId__4222D4EF" FromRole="Tasks" ToRole="UserTask" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="UserTask" Relationship="Self.FK__UserTask__UserId__4316F928" FromRole="User" ToRole="UserTask" />
+        </EntityType>
+        <EntityType Name="UserTask">
+          <Key>
+            <PropertyRef Name="UserTaskId" />
+          </Key>
+          <Property Name="UserTaskId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TaskId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ExecutionDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Tasks" Relationship="Self.FK__UserTask__TaskId__4222D4EF" FromRole="UserTask" ToRole="Tasks" />
+          <NavigationProperty Name="User" Relationship="Self.FK__UserTask__UserId__4316F928" FromRole="UserTask" ToRole="User" />
+          <Property Name="LastExecution" Type="DateTime" Precision="3" />
+          <Property Name="RepeatIntervalHours" Type="Int32" />
+          <Property Name="ExecutionTime" Type="Time" Precision="7" />
+          <Property Name="Result" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="UserTaskResults" Relationship="TaskOpsDB.FK__UserTaskR__UserT__693CA210" FromRole="UserTask" ToRole="UserTaskResults" />
+          <Property Name="Chart" Type="Int32" Nullable="false" />
         </EntityType>
         <Association Name="FK__Execution__TaskI__47DBAE45">
           <End Role="Tasks" Type="Self.Tasks" Multiplicity="1">
@@ -88,11 +236,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="TaskOpsDBModelStoreContainer">
-          <EntitySet Name="ExecutionLogs" EntityType="Self.ExecutionLogs" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Tasks" EntityType="Self.Tasks" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="UserTask" EntityType="Self.UserTask" Schema="dbo" store:Type="Tables" />
+        <EntityContainer Name="TaskOpsDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ExecutionLogs" EntityType="Self.ExecutionLogs" />
+          <EntitySet Name="Tasks" EntityType="Self.Tasks" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <EntitySet Name="UserTask" EntityType="Self.UserTask" />
           <AssociationSet Name="FK__Execution__TaskI__47DBAE45" Association="Self.FK__Execution__TaskI__47DBAE45">
             <End Role="Tasks" EntitySet="Tasks" />
             <End Role="ExecutionLogs" EntitySet="ExecutionLogs" />
@@ -105,115 +253,33 @@
             <End Role="User" EntitySet="User" />
             <End Role="UserTask" EntitySet="UserTask" />
           </AssociationSet>
-        </EntityContainer>
-      </Schema></edmx:StorageModels>
-    <!-- CSDL content -->
-    <edmx:ConceptualModels>
-      <Schema Namespace="TaskOpsDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="ExecutionLogs">
-          <Key>
-            <PropertyRef Name="LogId" />
-          </Key>
-          <Property Name="LogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TaskId" Type="Int32" Nullable="false" />
-          <Property Name="ExecutionTime" Type="DateTime" Precision="3" />
-          <Property Name="ExecutionStatus" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="OutputMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Tasks" Relationship="Self.FK__Execution__TaskI__3F466844" FromRole="ExecutionLogs" ToRole="Tasks" />
-        </EntityType>
-        <EntityType Name="Tasks">
-          <Key>
-            <PropertyRef Name="TaskId" />
-          </Key>
-          <Property Name="TaskId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TaskName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Priority" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
-          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="ExecutionLogs" Relationship="Self.FK__Execution__TaskI__3F466844" FromRole="Tasks" ToRole="ExecutionLogs" />
-          <Property Name="Executable" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="UserTask" Relationship="TaskOpsDBModel.FK__UserTask__TaskId__4222D4EF" FromRole="Tasks" ToRole="UserTask" />
-        </EntityType>
-        <Association Name="FK__Execution__TaskI__3F466844">
-          <End Role="Tasks" Type="Self.Tasks" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="ExecutionLogs" Type="Self.ExecutionLogs" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tasks">
-              <PropertyRef Name="TaskId" />
-            </Principal>
-            <Dependent Role="ExecutionLogs">
-              <PropertyRef Name="TaskId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="TaskOpsDBEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="ExecutionLogs" EntityType="Self.ExecutionLogs" />
-          <EntitySet Name="Tasks" EntityType="Self.Tasks" />
-          <AssociationSet Name="FK__Execution__TaskI__3F466844" Association="Self.FK__Execution__TaskI__3F466844">
-            <End Role="Tasks" EntitySet="Tasks" />
-            <End Role="ExecutionLogs" EntitySet="ExecutionLogs" />
-          </AssociationSet>
-          <EntitySet Name="User" EntityType="TaskOpsDBModel.User" />
-          <EntitySet Name="UserTask" EntityType="TaskOpsDBModel.UserTask" />
-          <AssociationSet Name="FK__UserTask__TaskId__4222D4EF" Association="TaskOpsDBModel.FK__UserTask__TaskId__4222D4EF">
-            <End Role="Tasks" EntitySet="Tasks" />
+          <EntitySet Name="UserTaskResults" EntityType="TaskOpsDB.UserTaskResults" />
+          <AssociationSet Name="FK__UserTaskR__UserT__693CA210" Association="TaskOpsDB.FK__UserTaskR__UserT__693CA210">
             <End Role="UserTask" EntitySet="UserTask" />
-          </AssociationSet>
-          <AssociationSet Name="FK__UserTask__UserId__4316F928" Association="TaskOpsDBModel.FK__UserTask__UserId__4316F928">
-            <End Role="User" EntitySet="User" />
-            <End Role="UserTask" EntitySet="UserTask" />
+            <End Role="UserTaskResults" EntitySet="UserTaskResults" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="User">
+        <EntityType Name="UserTaskResults">
           <Key>
-            <PropertyRef Name="UserId" />
+            <PropertyRef Name="ResultId" />
           </Key>
-          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Username" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Role" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="UserTask" Relationship="TaskOpsDBModel.FK__UserTask__UserId__4316F928" FromRole="User" ToRole="UserTask" />
+          <Property Name="ResultId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserTaskId" Type="Int32" Nullable="false" />
+          <Property Name="ExecutionDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ResultValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="UserTask" Relationship="TaskOpsDB.FK__UserTaskR__UserT__693CA210" FromRole="UserTaskResults" ToRole="UserTask" />
         </EntityType>
-        <EntityType Name="UserTask">
-          <Key>
-            <PropertyRef Name="UserTaskId" />
-          </Key>
-          <Property Name="UserTaskId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TaskId" Type="Int32" Nullable="false" />
-          <Property Name="UserId" Type="Int32" Nullable="false" />
-          <Property Name="Status" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="Result" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ExecutionDate" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Tasks" Relationship="TaskOpsDBModel.FK__UserTask__TaskId__4222D4EF" FromRole="UserTask" ToRole="Tasks" />
-          <NavigationProperty Name="User" Relationship="TaskOpsDBModel.FK__UserTask__UserId__4316F928" FromRole="UserTask" ToRole="User" />
-        </EntityType>
-        <Association Name="FK__UserTask__TaskId__4222D4EF">
-          <End Type="TaskOpsDBModel.Tasks" Role="Tasks" Multiplicity="1">
+        <Association Name="FK__UserTaskR__UserT__693CA210">
+          <End Type="TaskOpsDB.UserTask" Role="UserTask" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Type="TaskOpsDBModel.UserTask" Role="UserTask" Multiplicity="*" />
+          <End Type="TaskOpsDB.UserTaskResults" Role="UserTaskResults" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Tasks">
-              <PropertyRef Name="TaskId" />
+            <Principal Role="UserTask">
+              <PropertyRef Name="UserTaskId" />
             </Principal>
-            <Dependent Role="UserTask">
-              <PropertyRef Name="TaskId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__UserTask__UserId__4316F928">
-          <End Type="TaskOpsDBModel.User" Role="User" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="TaskOpsDBModel.UserTask" Role="UserTask" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="UserId" />
-            </Principal>
-            <Dependent Role="UserTask">
-              <PropertyRef Name="UserId" />
+            <Dependent Role="UserTaskResults">
+              <PropertyRef Name="UserTaskId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -222,9 +288,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="TaskOpsDBModelStoreContainer" CdmEntityContainer="TaskOpsDBEntities">
+        <EntityContainerMapping StorageEntityContainer="TaskOpsDBStoreContainer" CdmEntityContainer="TaskOpsDBEntities">
           <EntitySetMapping Name="ExecutionLogs">
-            <EntityTypeMapping TypeName="TaskOpsDBModel.ExecutionLogs">
+            <EntityTypeMapping TypeName="TaskOpsDB.ExecutionLogs">
               <MappingFragment StoreEntitySet="ExecutionLogs">
                 <ScalarProperty Name="LogId" ColumnName="LogId" />
                 <ScalarProperty Name="TaskId" ColumnName="TaskId" />
@@ -235,36 +301,50 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Tasks">
-            <EntityTypeMapping TypeName="TaskOpsDBModel.Tasks">
+            <EntityTypeMapping TypeName="TaskOpsDB.Tasks">
               <MappingFragment StoreEntitySet="Tasks">
-                <ScalarProperty Name="Executable" ColumnName="Executable" />
                 <ScalarProperty Name="TaskId" ColumnName="TaskId" />
                 <ScalarProperty Name="TaskName" ColumnName="TaskName" />
                 <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="Executable" ColumnName="Executable" />
                 <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
                 <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="User">
-            <EntityTypeMapping TypeName="TaskOpsDBModel.User">
+            <EntityTypeMapping TypeName="TaskOpsDB.User">
               <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="Role" ColumnName="Role" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="UserTask">
-            <EntityTypeMapping TypeName="TaskOpsDBModel.UserTask">
+            <EntityTypeMapping TypeName="TaskOpsDB.UserTask">
               <MappingFragment StoreEntitySet="UserTask">
-                <ScalarProperty Name="ExecutionDate" ColumnName="ExecutionDate" />
+                <ScalarProperty Name="Chart" ColumnName="Chart" />
                 <ScalarProperty Name="Result" ColumnName="Result" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+                <ScalarProperty Name="ExecutionTime" ColumnName="ExecutionTime" />
+                <ScalarProperty Name="RepeatIntervalHours" ColumnName="RepeatIntervalHours" />
+                <ScalarProperty Name="LastExecution" ColumnName="LastExecution" />
                 <ScalarProperty Name="UserTaskId" ColumnName="UserTaskId" />
+                <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ExecutionDate" ColumnName="ExecutionDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserTaskResults">
+            <EntityTypeMapping TypeName="TaskOpsDB.UserTaskResults">
+              <MappingFragment StoreEntitySet="UserTaskResults">
+                <ScalarProperty Name="ResultValue" ColumnName="ResultValue" />
+                <ScalarProperty Name="ExecutionDate" ColumnName="ExecutionDate" />
+                <ScalarProperty Name="UserTaskId" ColumnName="UserTaskId" />
+                <ScalarProperty Name="ResultId" ColumnName="ResultId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

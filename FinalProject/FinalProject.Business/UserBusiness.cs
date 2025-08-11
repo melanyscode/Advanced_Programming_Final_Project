@@ -43,5 +43,9 @@ namespace FinalProject.Business
         {
             repositoryUser.Update(user);
         }
+        public User Login(string username, string password)
+        {
+            return repositoryUser.GetByUsernameAndPassword(username, password);
+        }
     }
 }

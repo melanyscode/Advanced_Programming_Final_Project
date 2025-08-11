@@ -82,19 +82,23 @@
     <Compile Include="UserTask.cs">
       <DependentUpon>TaskOpsDB.tt</DependentUpon>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="TaskOpsDB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>TaskOpsDB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
+    <Compile Include="UserTaskResults.cs">
+      <DependentUpon>TaskOpsDB.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
     <None Include="packages.config" />
+    <EntityDeploy Include="TaskOpsDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TaskOpsDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
     <None Include="TaskOpsDB.edmx.diagram">
       <DependentUpon>TaskOpsDB.edmx</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="TaskOpsDB.Context.tt">
@@ -107,9 +111,6 @@
       <DependentUpon>TaskOpsDB.edmx</DependentUpon>
       <LastGenOutput>TaskOpsDB.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

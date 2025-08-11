@@ -26,16 +26,23 @@
         <svg class="bg-hexagon-left" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <polygon points="50,0 93,25 93,75 50,100 7,75 7,25" />
         </svg>
+        @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "login-form" }))
+        {
 
-        <form class="login-form" method="post" action="@Url.Action("Index", "Home")">
             <label for="username">Username</label>
             <input id="username" name="username" type="text" required autocomplete="username" placeholder="Enter username" />
 
             <label for="password">Password</label>
             <input id="password" name="password" type="password" required autocomplete="new-password" placeholder="Enter password" />
 
-            <button type="submit">Sign In</button>
-        </form>
+            <input type="submit" value="Log in" class="btn-login" />
+
+        }
+        @if (ViewBag.Error != null)
+        {
+            <div style="color: white;">@ViewBag.Error</div>
+        }
+
     </div>
 
 

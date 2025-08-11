@@ -15,5 +15,8 @@ namespace Repository
     public class RepositoryUserTasks : RepositoryBase<UserTask>, IRepositoryUserTasks
     {
         public RepositoryUserTasks() : base() { }
+
+       
     }
+
 }

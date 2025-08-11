@@ -32,9 +32,22 @@ CREATE TABLE UserTask (
     Status NVARCHAR(15) CHECK (Status IN ('Pending', 'Running', 'Completed', 'Failed')) NOT NULL DEFAULT 'Pending',
     Result NVARCHAR(MAX),
     ExecutionDate DATETIME DEFAULT GETDATE(),
+    LastExecution DATETIME NULL,
+    RepeatIntervalHours INT NULL,
+    ExecutionTime TIME NULL,
+    Chart INT NOT NULL,
     FOREIGN KEY (TaskId) REFERENCES Tasks(TaskId) ON DELETE CASCADE,
     FOREIGN KEY (UserId) REFERENCES [User](UserId) ON DELETE CASCADE
 );
+CREATE TABLE UserTaskResults (
+    ResultId INT PRIMARY KEY IDENTITY(1,1),
+    UserTaskId INT NOT NULL,
+    ExecutionDate DATETIME NOT NULL DEFAULT GETDATE(),
+    ResultValue NVARCHAR(MAX),
+    FOREIGN KEY (UserTaskId) REFERENCES UserTask(UserTaskId) ON DELETE CASCADE
+);
+
+
 GO
 
 CREATE TABLE ExecutionLogs (
@@ -75,5 +88,11 @@ VALUES
     GETDATE(),
     NULL
 );
+
+INSERT INTO User (Username, Password, Role)
+VALUES
+('megutierrez', 'admin123', 'Admin'),
+('aacevedo', 'admin123', 'Admin'),
+('testuser', 'user123', 'Operator');
 
 

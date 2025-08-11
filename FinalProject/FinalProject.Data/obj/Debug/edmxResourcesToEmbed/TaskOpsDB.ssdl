@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="TaskOpsDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="TaskOpsDB.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="ExecutionLogs">
     <Key>
       <PropertyRef Name="LogId" />
@@ -40,6 +40,19 @@
     <Property Name="Status" Type="nvarchar" MaxLength="15" Nullable="false" />
     <Property Name="Result" Type="nvarchar(max)" />
     <Property Name="ExecutionDate" Type="datetime" />
+    <Property Name="LastExecution" Type="datetime" />
+    <Property Name="RepeatIntervalHours" Type="int" />
+    <Property Name="ExecutionTime" Type="time" Precision="7" />
+    <Property Name="Chart" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserTaskResults">
+    <Key>
+      <PropertyRef Name="ResultId" />
+    </Key>
+    <Property Name="ResultId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserTaskId" Type="int" Nullable="false" />
+    <Property Name="ExecutionDate" Type="datetime" Nullable="false" />
+    <Property Name="ResultValue" Type="nvarchar(max)" />
   </EntityType>
   <Association Name="FK__Execution__TaskI__47DBAE45">
     <End Role="Tasks" Type="Self.Tasks" Multiplicity="1">
@@ -55,7 +68,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__UserTask__TaskId__4222D4EF">
+  <Association Name="FK__UserTask__TaskId__6EF57B66">
     <End Role="Tasks" Type="Self.Tasks" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
@@ -69,7 +82,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__UserTask__UserId__4316F928">
+  <Association Name="FK__UserTask__UserId__6FE99F9F">
     <End Role="User" Type="Self.User" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
@@ -83,22 +96,41 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="TaskOpsDBModelStoreContainer">
+  <Association Name="FK__UserTaskR__UserT__73BA3083">
+    <End Role="UserTask" Type="Self.UserTask" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserTaskResults" Type="Self.UserTaskResults" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserTask">
+        <PropertyRef Name="UserTaskId" />
+      </Principal>
+      <Dependent Role="UserTaskResults">
+        <PropertyRef Name="UserTaskId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TaskOpsDBStoreContainer">
     <EntitySet Name="ExecutionLogs" EntityType="Self.ExecutionLogs" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tasks" EntityType="Self.Tasks" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserTask" EntityType="Self.UserTask" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserTaskResults" EntityType="Self.UserTaskResults" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK__Execution__TaskI__47DBAE45" Association="Self.FK__Execution__TaskI__47DBAE45">
       <End Role="Tasks" EntitySet="Tasks" />
       <End Role="ExecutionLogs" EntitySet="ExecutionLogs" />
     </AssociationSet>
-    <AssociationSet Name="FK__UserTask__TaskId__4222D4EF" Association="Self.FK__UserTask__TaskId__4222D4EF">
+    <AssociationSet Name="FK__UserTask__TaskId__6EF57B66" Association="Self.FK__UserTask__TaskId__6EF57B66">
       <End Role="Tasks" EntitySet="Tasks" />
       <End Role="UserTask" EntitySet="UserTask" />
     </AssociationSet>
-    <AssociationSet Name="FK__UserTask__UserId__4316F928" Association="Self.FK__UserTask__UserId__4316F928">
+    <AssociationSet Name="FK__UserTask__UserId__6FE99F9F" Association="Self.FK__UserTask__UserId__6FE99F9F">
       <End Role="User" EntitySet="User" />
       <End Role="UserTask" EntitySet="UserTask" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserTaskR__UserT__73BA3083" Association="Self.FK__UserTaskR__UserT__73BA3083">
+      <End Role="UserTask" EntitySet="UserTask" />
+      <End Role="UserTaskResults" EntitySet="UserTaskResults" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

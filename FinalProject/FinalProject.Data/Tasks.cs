@@ -24,9 +24,9 @@ namespace FinalProject.Data
         public int TaskId { get; set; }
         public string TaskName { get; set; }
         public string Priority { get; set; }
+        public string Executable { get; set; }
         public Nullable<System.DateTime> CreatedAt { get; set; }
         public Nullable<System.DateTime> UpdatedAt { get; set; }
-        public string Executable { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ExecutionLogs> ExecutionLogs { get; set; }

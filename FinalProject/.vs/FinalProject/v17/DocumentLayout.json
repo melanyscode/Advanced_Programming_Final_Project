@@ -1,88 +1,12 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\usuario\\Downloads\\Advanced_Programming_Final_Project\\FinalProject\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{42202672-0F62-4FB2-BC8D-245D2F71F4FE}|FinalProject.Mvc\\FinalProject.Mvc.csproj|c:\\users\\usuario\\downloads\\advanced_programming_final_project\\finalproject\\finalproject.mvc\\views\\tasks\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{42202672-0F62-4FB2-BC8D-245D2F71F4FE}|FinalProject.Mvc\\FinalProject.Mvc.csproj|solutionrelative:finalproject.mvc\\views\\tasks\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{42202672-0F62-4FB2-BC8D-245D2F71F4FE}|FinalProject.Mvc\\FinalProject.Mvc.csproj|c:\\users\\usuario\\downloads\\advanced_programming_final_project\\finalproject\\finalproject.mvc\\views\\signup\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{42202672-0F62-4FB2-BC8D-245D2F71F4FE}|FinalProject.Mvc\\FinalProject.Mvc.csproj|solutionrelative:finalproject.mvc\\views\\signup\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{42202672-0F62-4FB2-BC8D-245D2F71F4FE}|FinalProject.Mvc\\FinalProject.Mvc.csproj|c:\\users\\usuario\\downloads\\advanced_programming_final_project\\finalproject\\finalproject.mvc\\views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{42202672-0F62-4FB2-BC8D-245D2F71F4FE}|FinalProject.Mvc\\FinalProject.Mvc.csproj|solutionrelative:finalproject.mvc\\views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{42202672-0F62-4FB2-BC8D-245D2F71F4FE}|FinalProject.Mvc\\FinalProject.Mvc.csproj|c:\\users\\usuario\\downloads\\advanced_programming_final_project\\finalproject\\finalproject.mvc\\content\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{42202672-0F62-4FB2-BC8D-245D2F71F4FE}|FinalProject.Mvc\\FinalProject.Mvc.csproj|solutionrelative:finalproject.mvc\\content\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    }
-  ],
+  "WorkspaceRootPath": "C:\\ProgamacionAvanzada\\ProyectoFinal\\Advanced_Programming_Final_Project\\FinalProject\\",
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 183,
-          "SelectedChildIndex": 3,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\usuario\\Downloads\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject.Mvc\\Views\\Login\\Index.cshtml",
-              "RelativeDocumentMoniker": "FinalProject.Mvc\\Views\\Login\\Index.cshtml",
-              "ToolTip": "C:\\Users\\usuario\\Downloads\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject.Mvc\\Views\\Login\\Index.cshtml",
-              "RelativeToolTip": "FinalProject.Mvc\\Views\\Login\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-02T22:59:00.176Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\usuario\\Downloads\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject.Mvc\\Views\\SignUp\\Index.cshtml",
-              "RelativeDocumentMoniker": "FinalProject.Mvc\\Views\\SignUp\\Index.cshtml",
-              "ToolTip": "C:\\Users\\usuario\\Downloads\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject.Mvc\\Views\\SignUp\\Index.cshtml",
-              "RelativeToolTip": "FinalProject.Mvc\\Views\\SignUp\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-02T20:33:17.719Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Site.css",
-              "DocumentMoniker": "C:\\Users\\usuario\\Downloads\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject.Mvc\\Content\\Site.css",
-              "RelativeDocumentMoniker": "FinalProject.Mvc\\Content\\Site.css",
-              "ToolTip": "C:\\Users\\usuario\\Downloads\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject.Mvc\\Content\\Site.css",
-              "RelativeToolTip": "FinalProject.Mvc\\Content\\Site.css",
-              "ViewState": "AgIAAOUBAAAAAAAAAAAMwAYCAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-08-02T13:48:34.815Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\usuario\\Downloads\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject.Mvc\\Views\\Tasks\\Index.cshtml",
-              "RelativeDocumentMoniker": "FinalProject.Mvc\\Views\\Tasks\\Index.cshtml",
-              "ToolTip": "C:\\Users\\usuario\\Downloads\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject.Mvc\\Views\\Tasks\\Index.cshtml",
-              "RelativeToolTip": "FinalProject.Mvc\\Views\\Tasks\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-02T18:17:14.216Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }

@@ -15,5 +15,9 @@ namespace Repository
     public class RepositoryUser : RepositoryBase<User>, IRepositoryUsers
     {
         public RepositoryUser() : base() { }
+        public User GetByUsernameAndPassword(string username, string password)
+        {
+            return _set.FirstOrDefault(u => u.Username == username && u.Password == password);
+        }
     }
 }

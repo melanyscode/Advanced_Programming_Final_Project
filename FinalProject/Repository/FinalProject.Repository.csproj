@@ -55,6 +55,7 @@
     <Compile Include="RepositoryBase.cs" />
     <Compile Include="RepositoryTasks.cs" />
     <Compile Include="RepositoryUser.cs" />
+    <Compile Include="RepositoryUserTaskResults.cs" />
     <Compile Include="RepositoryUserTasks.cs" />
   </ItemGroup>
   <ItemGroup>
