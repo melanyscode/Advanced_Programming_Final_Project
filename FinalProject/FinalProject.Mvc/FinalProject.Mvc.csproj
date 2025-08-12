@@ -132,6 +132,7 @@
     <Compile Include="Controllers\SignUpController.cs" />
     <Compile Include="Controllers\TasksController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Controllers\UserTaskResultsController.cs" />
     <Compile Include="Controllers\UserTasksController.cs" />
     <Compile Include="Filter\RoleFilter.cs" />
     <Compile Include="Global.asax.cs">
@@ -206,6 +207,11 @@
     <Content Include="Views\UserTasks\Index.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\SignUp\Index.cshtml" />
+    <Content Include="Views\UserTaskResults\Create.cshtml" />
+    <Content Include="Views\UserTaskResults\Delete.cshtml" />
+    <Content Include="Views\UserTaskResults\Details.cshtml" />
+    <Content Include="Views\UserTaskResults\Edit.cshtml" />
+    <Content Include="Views\UserTaskResults\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

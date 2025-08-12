@@ -26,12 +26,12 @@
 
         <table class="table" style="margin-top: 15px;">
             <tr>
-                <th style="width: 250px;">@Html.DisplayNameFor(model => model.TaskName)</th>
-                <th style="width: 200px;">@Html.DisplayNameFor(model => model.Priority)</th>
-                <th>@Html.DisplayNameFor(model => model.Executable)</th>
-                <th>@Html.DisplayNameFor(model => model.CreatedAt)</th>
-                <th>@Html.DisplayNameFor(model => model.UpdatedAt)</th>
-                <th>Actions</th>
+                <th style="width: 200px;">@Html.DisplayNameFor(model => model.TaskName)</th>
+                <th style="width: 150px;">@Html.DisplayNameFor(model => model.Priority)</th>
+                <th style="width: 300px;">@Html.DisplayNameFor(model => model.Executable)</th>
+                <th style="width: 300px;">@Html.DisplayNameFor(model => model.CreatedAt)</th>
+                <th style="width: 300px;">@Html.DisplayNameFor(model => model.UpdatedAt)</th>
+                <th style="width: 400px;">Actions</th>
             </tr>
 
             @foreach (var item in group)
@@ -45,7 +45,7 @@
                     <td style="text-align: center;">@Html.DisplayFor(modelItem => item.Executable)</td>
                     <td style="text-align: center;">@Html.DisplayFor(modelItem => item.CreatedAt)</td>
                     <td style="text-align: center;">@Html.DisplayFor(modelItem => item.UpdatedAt)</td>
-                    <td class="action-buttons">
+                    <td class="action-buttons" style="display: flex; justify-content: center; gap: 10px;">
                         @Html.ActionLink("Edit", "Edit", new { id = item.TaskId }, new { @class = "btn-action edit" })
                         @Html.ActionLink("Details", "Details", new { id = item.TaskId }, new { @class = "btn-action details" })
                         @Html.ActionLink("Delete", "Delete", new { id = item.TaskId }, new { @class = "btn-action delete" })

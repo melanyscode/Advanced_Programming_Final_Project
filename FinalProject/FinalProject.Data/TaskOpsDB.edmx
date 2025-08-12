@@ -59,7 +59,7 @@
           <Property Name="ExecutionDate" Type="datetime" Nullable="false" />
           <Property Name="ResultValue" Type="nvarchar(max)" />
         </EntityType>
-        <Association Name="FK__Execution__TaskI__47DBAE45">
+        <Association Name="FK__Execution__TaskI__4BAC3F29">
           <End Role="Tasks" Type="Self.Tasks" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -73,7 +73,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__UserTask__TaskId__6EF57B66">
+        <Association Name="FK__UserTask__TaskId__4222D4EF">
           <End Role="Tasks" Type="Self.Tasks" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -87,7 +87,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__UserTask__UserId__6FE99F9F">
+        <Association Name="FK__UserTask__UserId__4316F928">
           <End Role="User" Type="Self.User" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -101,7 +101,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__UserTaskR__UserT__73BA3083">
+        <Association Name="FK__UserTaskR__UserT__46E78A0C">
           <End Role="UserTask" Type="Self.UserTask" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -121,19 +121,19 @@
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserTask" EntityType="Self.UserTask" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserTaskResults" EntityType="Self.UserTaskResults" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Execution__TaskI__47DBAE45" Association="Self.FK__Execution__TaskI__47DBAE45">
+          <AssociationSet Name="FK__Execution__TaskI__4BAC3F29" Association="Self.FK__Execution__TaskI__4BAC3F29">
             <End Role="Tasks" EntitySet="Tasks" />
             <End Role="ExecutionLogs" EntitySet="ExecutionLogs" />
           </AssociationSet>
-          <AssociationSet Name="FK__UserTask__TaskId__6EF57B66" Association="Self.FK__UserTask__TaskId__6EF57B66">
+          <AssociationSet Name="FK__UserTask__TaskId__4222D4EF" Association="Self.FK__UserTask__TaskId__4222D4EF">
             <End Role="Tasks" EntitySet="Tasks" />
             <End Role="UserTask" EntitySet="UserTask" />
           </AssociationSet>
-          <AssociationSet Name="FK__UserTask__UserId__6FE99F9F" Association="Self.FK__UserTask__UserId__6FE99F9F">
+          <AssociationSet Name="FK__UserTask__UserId__4316F928" Association="Self.FK__UserTask__UserId__4316F928">
             <End Role="User" EntitySet="User" />
             <End Role="UserTask" EntitySet="UserTask" />
           </AssociationSet>
-          <AssociationSet Name="FK__UserTaskR__UserT__73BA3083" Association="Self.FK__UserTaskR__UserT__73BA3083">
+          <AssociationSet Name="FK__UserTaskR__UserT__46E78A0C" Association="Self.FK__UserTaskR__UserT__46E78A0C">
             <End Role="UserTask" EntitySet="UserTask" />
             <End Role="UserTaskResults" EntitySet="UserTaskResults" />
           </AssociationSet>
