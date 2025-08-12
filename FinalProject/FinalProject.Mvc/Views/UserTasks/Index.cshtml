@@ -27,8 +27,8 @@
         <table class="table" style="margin-top: 15px;">
             <tr>
                 <th style="width: 200px;">@Html.DisplayNameFor(model => model.Status)</th>
-                <th style="width: 250px;">@Html.DisplayNameFor(model => model.Result)</th>
-                <th style="width: 250px;">@Html.DisplayNameFor(model => model.ExecutionDate)</th>
+                <th style="width: 300px;">@Html.DisplayNameFor(model => model.Result)</th>
+                <th style="width: 300px;">@Html.DisplayNameFor(model => model.ExecutionDate)</th>
                 <th style="width: 300px;">@Html.DisplayNameFor(model => model.Tasks.TaskName)</th>
                 <th>@Html.DisplayNameFor(model => model.User.Username)</th>
                 <th>Actions</th>
@@ -52,7 +52,7 @@
                     <td style="text-align: center;">@Html.DisplayFor(modelItem => item.ExecutionDate)</td>
                     <td style="text-align: center;">@Html.DisplayFor(modelItem => item.Tasks.TaskName)</td>
                     <td style="text-align: center;">@Html.DisplayFor(modelItem => item.User.Username)</td>
-                    <td class="action-buttons">
+                    <td class="action-buttons" style="display: flex; justify-content: center; gap: 10px;">
                         @Html.ActionLink("Edit", "Edit", new { id = item.UserTaskId }, new { @class = "btn-action edit" })
                         @Html.ActionLink("Details", "Details", new { id = item.UserTaskId }, new { @class = "btn-action details" })
                         @Html.ActionLink("Delete", "Delete", new { id = item.UserTaskId }, new { @class = "btn-action delete" })

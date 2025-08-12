@@ -1,0 +1,42 @@
+﻿@model FinalProject.Data.UserTaskResults
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>UserTaskResults</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ExecutionDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExecutionDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResultValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResultValue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserTask.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserTask.Status)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ResultId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

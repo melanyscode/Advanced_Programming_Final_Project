@@ -1,0 +1,58 @@
+﻿@model IEnumerable<FinalProject.Data.UserTaskResults>
+
+<link href="~/Content/Site.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "Index";
+    var groupedResults = Model.GroupBy(r => r.UserTask.Status);
+}
+
+<div class="switch-section">
+    <div class="switch-buttons">
+        <a href="https://localhost:44368/Tasks/Index" class="switch-btn">Priority</a>
+        <a href="https://localhost:44368/UserTasks/Index" class="switch-btn active">Status</a>
+    </div>
+    <hr class="custom-divider" />
+</div>
+
+@foreach (var group in groupedResults.OrderBy(g => g.Key))
+{
+    <div style="margin-bottom: 40px;">
+        <h3 style="margin-top: 30px;">@group.Key Status</h3>
+
+        <table class="table" style="margin-top: 15px;">
+            <tr>
+                <th style="text-align: center; width: 570px;">
+                    @Html.DisplayNameFor(model => model.ExecutionDate)
+                </th>
+
+
+                <th style="text-align: center;">@Html.DisplayNameFor(model => model.ResultValue)</th>
+                <th style="text-align: center;">Status</th>
+            </tr>
+
+            @foreach (var item in group)
+            {
+                var statusClass = item.UserTask.Status == "Pending" ? "mybadge-pending" :
+                                  item.UserTask.Status == "Running" ? "mybadge-running" :
+                                  item.UserTask.Status == "Completed" ? "mybadge-completed" :
+                                  item.UserTask.Status == "Failed" ? "mybadge-failed" : "mybadge-pending";
+
+                <tr>
+                    <td style="text-align: center;">
+                        @Html.DisplayFor(modelItem => item.ExecutionDate)
+                    </td>
+                    <td style="text-align: center;">
+                        @Html.DisplayFor(modelItem => item.ResultValue)
+                    </td>
+                    <td style="text-align: center;">
+                        <span class="mybadge @statusClass">
+                            @Html.DisplayFor(modelItem => item.UserTask.Status)
+                        </span>
+                    </td>
+                </tr>
+            }
+        </table>
+        <hr style="margin-top: 30px;" />
+    </div>
+}
