@@ -110,7 +110,7 @@ namespace FinalProject.Worker
                                         userTaskResultsRepo.Save();
                                     }catch(Exception ex)
                                     {
-                                        Debug.WriteLine($"Error guardando historial: {ex.Message}");
+                                        Debug.WriteLine($"error guardando: {ex.Message}");
                                     }
                                     
                                     Debug.WriteLine($"ejecutando tarea {ut.UserTaskId}");
