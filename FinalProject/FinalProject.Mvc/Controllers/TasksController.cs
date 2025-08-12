@@ -1,13 +1,14 @@
-﻿using System;
+﻿using FinalProject.Business;
+using FinalProject.Data;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using FinalProject.Business;
-using FinalProject.Data;
 
 namespace FinalProject.Mvc.Controllers
 {
@@ -45,11 +46,11 @@ namespace FinalProject.Mvc.Controllers
         {
 
             ViewBag.PriorityOptions = new List<SelectListItem>
-{
-    new SelectListItem { Text = "High", Value = "High" },
-    new SelectListItem { Text = "Medium", Value = "Medium" },
-    new SelectListItem { Text = "Low", Value = "Low" }
-};
+            {
+                new SelectListItem { Text = "High", Value = "High" },
+                new SelectListItem { Text = "Medium", Value = "Medium" },
+                new SelectListItem { Text = "Low", Value = "Low" }
+            };
 
 
             return View();
@@ -60,8 +61,24 @@ namespace FinalProject.Mvc.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TaskId,TaskName,Priority,Executable")] Tasks tasks)
+        public ActionResult Create([Bind(Include = "TaskId,TaskName,Priority,Executable")] Tasks tasks, HttpPostedFileBase file)
         {
+
+            //route the uploaded file if any
+            if (file != null && file.ContentLength > 0)
+            {
+                string path = @"C:\Scripts";
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+
+                string filePath = Path.Combine(path, Path.GetFileName(file.FileName));
+                file.SaveAs(filePath);
+
+
+                tasks.Executable = Path.GetFileName(file.FileName);
+            }
             if (ModelState.IsValid)
             {
                 tasks.CreatedAt = DateTime.Now;
@@ -96,11 +113,11 @@ namespace FinalProject.Mvc.Controllers
             }
 
             ViewBag.PriorityOptions = new List<SelectListItem>
-    {
-        new SelectListItem { Text = "High", Value = "High" },
-        new SelectListItem { Text = "Medium", Value = "Medium" },
-        new SelectListItem { Text = "Low", Value = "Low" }
-    };
+                {
+                    new SelectListItem { Text = "High", Value = "High" },
+                    new SelectListItem { Text = "Medium", Value = "Medium" },
+                    new SelectListItem { Text = "Low", Value = "Low" }
+                };
 
             return View(tasks);
         }
@@ -112,6 +129,8 @@ namespace FinalProject.Mvc.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "TaskId,TaskName,Priority,Executable,CreatedAt")] Tasks tasks)
         {
+         
+
             if (ModelState.IsValid)
             {
                 tasks.UpdatedAt = DateTime.Now; 

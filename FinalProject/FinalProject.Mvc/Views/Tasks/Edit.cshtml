@@ -6,7 +6,7 @@
 
 <h2>Edit</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
@@ -31,7 +31,7 @@
 
         <div class="form-group">
             @Html.Label("Executable", htmlAttributes: new { @class = "control-label" })
-            <input type="file" id="fileInput" class="form-control" />
+            <input type="file" id="fileInput" name="file" class="form-control" accept=".ps1" />
             @Html.HiddenFor(model => model.Executable)
             @Html.ValidationMessageFor(model => model.Executable, "", new { @class = "text-danger" })
         </div>
@@ -52,14 +52,15 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 
-    <script>
-        document.getElementById("fileInput").addEventListener("change", function () {
-            var fullPath = this.value;
-            if (fullPath) {
-                var fileName = fullPath.split('\\').pop().split('/').pop();
-                var fullExecutablePath = "C:/Scripts/" + fileName;
-                document.getElementById("Executable").value = fullExecutablePath;
-            }
-        });
-    </script>
+<script>
+    document.getElementById("fileInput").addEventListener("change", function () {
+        var fullPath = this.value;
+        if (fullPath) {
+            var fileName = fullPath.split('\\').pop().split('/').pop();
+            console.log(fileName);
+            var serverPath = "C://Scripts/" + fileName; 
+            document.getElementById("Executable").value = serverPath;
+        }
+    });
+</script>
 }
