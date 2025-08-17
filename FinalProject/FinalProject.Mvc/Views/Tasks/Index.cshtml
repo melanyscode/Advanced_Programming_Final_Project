@@ -15,9 +15,12 @@
     <hr class="custom-divider" />
 </div>
 
-<p>
-    @Html.ActionLink("CREATE NEW", "Create", null, new { @class = "top-link" })
-</p>
+@if (ViewBag.IsAdmin == true)
+{
+    <p>
+        @Html.ActionLink("CREATE NEW", "Create", null, new { @class = "top-link" })
+    </p>
+}
 
 @foreach (var group in groupedTasks.OrderBy(g => g.Key))
 {
