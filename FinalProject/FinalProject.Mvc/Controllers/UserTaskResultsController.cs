@@ -7,6 +7,7 @@ using Repository;
 
 namespace FinalProject.Mvc.Controllers
 {
+    [RoleFilter("Admin")]
     public class UserTaskResultsController : Controller
     {
         private readonly IRepositoryUserTaskResults _userTaskResultsRepository;
