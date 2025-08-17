@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace AdvancedProgramming.Mvc.Filters
+namespace FinalProject.Mvc.Filters
 {
     public class RoleFilter : ActionFilterAttribute
     {
