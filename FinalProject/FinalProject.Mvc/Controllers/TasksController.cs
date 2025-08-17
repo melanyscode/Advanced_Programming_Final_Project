@@ -23,6 +23,10 @@ namespace FinalProject.Mvc.Controllers
         // GET: Tasks
         public ActionResult Index()
         {
+            // Creacion de ViewBag para guardar el rol del usuario y esconder el boton de crear si no es admin
+            var role = (Session["RoleId"] ?? "").ToString();
+            ViewBag.IsAdmin = role.Equals("Admin", StringComparison.OrdinalIgnoreCase);
+        
             return View(taskBusiness.GetTasks());
         }
 
@@ -42,6 +46,7 @@ namespace FinalProject.Mvc.Controllers
         }
 
         // GET: Tasks/Create
+        [RoleFilter("Admin")]
         public ActionResult Create()
         {
 
@@ -61,6 +66,7 @@ namespace FinalProject.Mvc.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [RoleFilter("Admin")]
         public ActionResult Create([Bind(Include = "TaskId,TaskName,Priority,Executable")] Tasks tasks, HttpPostedFileBase file)
         {
 
