@@ -8,68 +8,144 @@
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-</head>
+    <style>
+
+        #toast-container {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            z-index: 9999;
+        }
+
+        .toast-message {
+            min-width: 300px;
+            min-height: 80px; /* Más alta en vertical */
+            background: linear-gradient(145deg, #0d1218, #1e2837);
+            color: #00e5ff;
+            border: 2px solid #00e5ff;
+            border-radius: 10px;
+            padding: 25px 20px; /* Más padding vertical */
+            font-weight: 600;
+            box-shadow: 0 0 10px #00e5ff88, inset 0 0 10px #00e5ffaa;
+            font-size: 1.2rem; /* Letra más grande */
+            letter-spacing: 1.2px;
+            cursor: pointer;
+            user-select: none;
+            margin-top: 10px;
+            opacity: 0;
+            animation: slideIn 0.5s forwards;
+            position: relative;
+        }
 
 
-<body>
-    <div class="app-container">
-        <aside class="sidebar">
-
-            <div style="text-align: center; margin-top: 20px;">
-                <i class="fas fa-network-wired" style="font-size: 32px; color: #00c7c7; "></i>
-                <h2>NETKEEP</h2>
-            </div>
-
-
-            <nav>
-                <ul>
-                    <li>
-                        <a href="@Url.Action("Index", "Home")">
-                            <i class="fas fa-tachometer-alt"></i> Dashboard
-                        </a>
-                    </li>
-                    <li>
-                        <a href="@Url.Action("Index", "Tasks")">
-                            <i class="fas fa-tasks"></i> Tasks
-                        </a>
-                    </li>
-                    <li>
-                        <a href="@Url.Action("Index", "Users")">
-                            <i class="fas fa-users"></i> Users
-                        </a>
-                    </li>
-                    <li>
-                        <a href="@Url.Action("Index", "UserTaskResults")">
-                            <i class="fas fa-file-alt"></i> Logs
-                        </a>
-                    </li>
-                    <li>
-                        <a href="@Url.Action("Logout", "Account")">
-                            <i class="fas fa-sign-out-alt"></i> Logout
-                        </a>
-
-                    </li>
-
-                </ul>
-            </nav>
-
-        </aside>
-
-        <div style="flex:1; display:flex; flex-direction: column; overflow: visible;">
-            <header class="app-header">
-                SYSTEM MAINTENANCE TASKS
-            </header>
-
-            <main class="content-area">
-                @RenderBody()
-            </main>
+        @@keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
 
 
-        </div>
-    </div>
+    </style>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
-</body>
-</html>
+
+        </head >
+
+
+        <body >
+
+        <div id="toast-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;" > </div >
+        @if (TempData["GlobalNotification"] != null)
+    {
+        var message = TempData["GlobalNotification"].ToString();
+         <script >
+        (function() {
+            var container = document.getElementById('toast-container');
+            var toast = document.createElement('div');
+            toast.className = 'toast-message';
+            toast.textContent = '@message';
+
+            toast.onclick = function () {
+                container.removeChild(toast);
+            };
+
+            container.appendChild(toast);
+
+            setTimeout(function () {
+                if (toast.parentNode === container) {
+                    toast.style.transition = 'opacity 0.5s ease';
+                    toast.style.opacity = '0';
+                    setTimeout(function() {
+                        if (toast.parentNode === container) {
+                            container.removeChild(toast);
+                        }
+                    }, 500);
+                }
+            }, 15000);
+        })();
+        </script >
+    }
+        <div class="app-container" >
+        <aside class="sidebar" >
+
+        <div style="text-align: center; margin-top: 20px;" >
+        <i class="fas fa-network-wired" style="font-size: 32px; color: #00c7c7; " > </i >
+        <h2 > NETKEEP</h2 >
+        </div >
+
+
+        <nav >
+        <ul >
+        <li >
+        <a href="@Url.Action("Index", "Home")" >
+        <i class="fas fa-tachometer-alt" > </i > Dashboard
+        </a >
+        </li >
+        <li >
+        <a href="@Url.Action("Index", "Tasks")" >
+        <i class="fas fa-tasks" > </i > Tasks
+        </a >
+        </li >
+        <li >
+        <a href="@Url.Action("Index", "Users")" >
+        <i class="fas fa-users" > </i > Users
+        </a >
+        </li >
+        <li >
+        <a href="@Url.Action("Index", "UserTaskResults")" >
+        <i class="fas fa-file-alt" > </i > Logs
+        </a >
+        </li >
+        <li >
+        <a href="@Url.Action("Logout", "Account")" >
+        <i class="fas fa-sign-out-alt" > </i > Logout
+        </a >
+
+        </li >
+
+        </ul >
+        </nav >
+
+        </aside >
+
+        <div style="flex:1; display:flex; flex-direction: column; overflow: visible;" >
+        <header class="app-header" >
+        SYSTEM MAINTENANCE TASKS
+        </header >
+
+        <main class="content-area" >
+        @RenderBody()
+        </main >
+
+
+        </div >
+        </div >
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+        </body >
+        </html >

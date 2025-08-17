@@ -91,7 +91,6 @@ C:\ProgamacionAvanzada\ProyectoFinal\Advanced_Programming_Final_Project\FinalPro
 C:\ProgamacionAvanzada\ProyectoFinal\Advanced_Programming_Final_Project\FinalProject\FinalProject.Mvc\bin\FinalProject.Worker.pdb
 C:\ProgamacionAvanzada\ProyectoFinal\Advanced_Programming_Final_Project\FinalProject\FinalProject.Mvc\bin\Repository.pdb
 C:\ProgamacionAvanzada\ProyectoFinal\Advanced_Programming_Final_Project\FinalProject\FinalProject.Mvc\bin\Repository.dll.config
-C:\Users\usuario\Downloads\Advanced_Programming_Final_Project\FinalProject\FinalProject.Mvc\bin\EntityFramework.xml
 C:\Users\usuario\Downloads\Advanced_Programming_Final_Project\FinalProject\FinalProject.Mvc\bin\FinalProject.Mvc.dll.config
 C:\Users\usuario\Downloads\Advanced_Programming_Final_Project\FinalProject\FinalProject.Mvc\bin\FinalProject.Mvc.dll
 C:\Users\usuario\Downloads\Advanced_Programming_Final_Project\FinalProject\FinalProject.Mvc\bin\FinalProject.Mvc.pdb
@@ -168,6 +167,7 @@ C:\Users\usuario\Downloads\Advanced_Programming_Final_Project\FinalProject\Final
 C:\Users\usuario\Downloads\Advanced_Programming_Final_Project\FinalProject\FinalProject.Mvc\bin\FinalProject.Worker.pdb
 C:\Users\usuario\Downloads\Advanced_Programming_Final_Project\FinalProject\FinalProject.Mvc\bin\Repository.pdb
 C:\Users\usuario\Downloads\Advanced_Programming_Final_Project\FinalProject\FinalProject.Mvc\bin\Repository.dll.config
+C:\Users\usuario\Downloads\Advanced_Programming_Final_Project\FinalProject\FinalProject.Mvc\bin\EntityFramework.xml
 C:\Users\usuario\Downloads\Advanced_Programming_Final_Project\FinalProject\FinalProject.Mvc\bin\EntityFramework.SqlServer.xml
 C:\Users\usuario\Downloads\Advanced_Programming_Final_Project\FinalProject\FinalProject.Mvc\bin\System.Web.Helpers.xml
 C:\Users\usuario\Downloads\Advanced_Programming_Final_Project\FinalProject\FinalProject.Mvc\bin\System.Web.Mvc.xml

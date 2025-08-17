@@ -59,7 +59,7 @@ namespace FinalProject.Mvc.Controllers
         {
             if (ModelState.IsValid)
             {
-                userTasksBusiness.SaveUserTask(0, userTask); // 0 = nuevo
+                userTasksBusiness.SaveUserTask(0, userTask); 
                 userTasksBusiness.SaveChanges();
                 return RedirectToAction("Index");
             }

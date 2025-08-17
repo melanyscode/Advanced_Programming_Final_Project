@@ -1,11 +1,16 @@
 ﻿@model IEnumerable<FinalProject.Data.UserTask>
 
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
 <link href="~/Content/Site.css" rel="stylesheet" />
 
 @{
     ViewBag.Title = "Index";
     var groupedUserTasks = Model.GroupBy(u => u.Status);
 }
+
 
 <div class="switch-section">
     <div class="switch-buttons">

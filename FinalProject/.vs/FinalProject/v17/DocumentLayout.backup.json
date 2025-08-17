@@ -3,24 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\usuario\\Downloads\\Advanced_Programming_Final_Project\\FinalProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DE0094C3-999C-480A-BA51-13D67036EE48}|Repository\\FinalProject.Repository.csproj|c:\\users\\usuario\\downloads\\advanced_programming_final_project\\finalproject\\repository\\repositoryusertasks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DE0094C3-999C-480A-BA51-13D67036EE48}|Repository\\FinalProject.Repository.csproj|solutionrelative:repository\\repositoryusertasks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{42202672-0F62-4FB2-BC8D-245D2F71F4FE}|FinalProject.Mvc\\FinalProject.Mvc.csproj|c:\\users\\usuario\\downloads\\advanced_programming_final_project\\finalproject\\finalproject.mvc\\views\\account\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{42202672-0F62-4FB2-BC8D-245D2F71F4FE}|FinalProject.Mvc\\FinalProject.Mvc.csproj|solutionrelative:finalproject.mvc\\views\\account\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{42202672-0F62-4FB2-BC8D-245D2F71F4FE}|FinalProject.Mvc\\FinalProject.Mvc.csproj|c:\\users\\usuario\\downloads\\advanced_programming_final_project\\finalproject\\finalproject.mvc\\views\\usertasks\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{42202672-0F62-4FB2-BC8D-245D2F71F4FE}|FinalProject.Mvc\\FinalProject.Mvc.csproj|solutionrelative:finalproject.mvc\\views\\usertasks\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{42202672-0F62-4FB2-BC8D-245D2F71F4FE}|FinalProject.Mvc\\FinalProject.Mvc.csproj|c:\\users\\usuario\\downloads\\advanced_programming_final_project\\finalproject\\finalproject.mvc\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{42202672-0F62-4FB2-BC8D-245D2F71F4FE}|FinalProject.Mvc\\FinalProject.Mvc.csproj|solutionrelative:finalproject.mvc\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{42202672-0F62-4FB2-BC8D-245D2F71F4FE}|FinalProject.Mvc\\FinalProject.Mvc.csproj|c:\\users\\usuario\\downloads\\advanced_programming_final_project\\finalproject\\finalproject.mvc\\controllers\\taskscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{42202672-0F62-4FB2-BC8D-245D2F71F4FE}|FinalProject.Mvc\\FinalProject.Mvc.csproj|solutionrelative:finalproject.mvc\\controllers\\taskscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{42202672-0F62-4FB2-BC8D-245D2F71F4FE}|FinalProject.Mvc\\FinalProject.Mvc.csproj|C:\\Users\\usuario\\Downloads\\Advanced_Programming_Final_Project\\FinalProject\\finalproject.mvc\\content\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{42202672-0F62-4FB2-BC8D-245D2F71F4FE}|FinalProject.Mvc\\FinalProject.Mvc.csproj|solutionrelative:finalproject.mvc\\content\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{42202672-0F62-4FB2-BC8D-245D2F71F4FE}|FinalProject.Mvc\\FinalProject.Mvc.csproj|c:\\users\\usuario\\downloads\\advanced_programming_final_project\\finalproject\\finalproject.mvc\\controllers\\usertaskscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{42202672-0F62-4FB2-BC8D-245D2F71F4FE}|FinalProject.Mvc\\FinalProject.Mvc.csproj|solutionrelative:finalproject.mvc\\controllers\\usertaskscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{42202672-0F62-4FB2-BC8D-245D2F71F4FE}|FinalProject.Mvc\\FinalProject.Mvc.csproj|c:\\users\\usuario\\downloads\\advanced_programming_final_project\\finalproject\\finalproject.mvc\\content\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{42202672-0F62-4FB2-BC8D-245D2F71F4FE}|FinalProject.Mvc\\FinalProject.Mvc.csproj|solutionrelative:finalproject.mvc\\content\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{42202672-0F62-4FB2-BC8D-245D2F71F4FE}|FinalProject.Mvc\\FinalProject.Mvc.csproj|c:\\users\\usuario\\downloads\\advanced_programming_final_project\\finalproject\\finalproject.mvc\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{42202672-0F62-4FB2-BC8D-245D2F71F4FE}|FinalProject.Mvc\\FinalProject.Mvc.csproj|solutionrelative:finalproject.mvc\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{42202672-0F62-4FB2-BC8D-245D2F71F4FE}|FinalProject.Mvc\\FinalProject.Mvc.csproj|c:\\users\\usuario\\downloads\\advanced_programming_final_project\\finalproject\\finalproject.mvc\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{42202672-0F62-4FB2-BC8D-245D2F71F4FE}|FinalProject.Mvc\\FinalProject.Mvc.csproj|solutionrelative:finalproject.mvc\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{42202672-0F62-4FB2-BC8D-245D2F71F4FE}|FinalProject.Mvc\\FinalProject.Mvc.csproj|c:\\users\\usuario\\downloads\\advanced_programming_final_project\\finalproject\\finalproject.mvc\\views\\usertaskresults\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{42202672-0F62-4FB2-BC8D-245D2F71F4FE}|FinalProject.Mvc\\FinalProject.Mvc.csproj|solutionrelative:finalproject.mvc\\views\\usertaskresults\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,70 +42,108 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "RepositoryUserTasks.cs",
-              "DocumentMoniker": "C:\\Users\\usuario\\Downloads\\Advanced_Programming_Final_Project\\FinalProject\\Repository\\RepositoryUserTasks.cs",
-              "RelativeDocumentMoniker": "Repository\\RepositoryUserTasks.cs",
-              "ToolTip": "C:\\Users\\usuario\\Downloads\\Advanced_Programming_Final_Project\\FinalProject\\Repository\\RepositoryUserTasks.cs",
-              "RelativeToolTip": "Repository\\RepositoryUserTasks.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAFAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\usuario\\Downloads\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject.Mvc\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "FinalProject.Mvc\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\usuario\\Downloads\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject.Mvc\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "FinalProject.Mvc\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAADgv0kAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T04:32:51.446Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UserTasksController.cs",
-              "DocumentMoniker": "C:\\Users\\usuario\\Downloads\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject.Mvc\\Controllers\\UserTasksController.cs",
-              "RelativeDocumentMoniker": "FinalProject.Mvc\\Controllers\\UserTasksController.cs",
-              "ToolTip": "C:\\Users\\usuario\\Downloads\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject.Mvc\\Controllers\\UserTasksController.cs",
-              "RelativeToolTip": "FinalProject.Mvc\\Controllers\\UserTasksController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAH4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T05:32:10.767Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\usuario\\Downloads\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject.Mvc\\Views\\UserTaskResults\\Index.cshtml",
-              "RelativeDocumentMoniker": "FinalProject.Mvc\\Views\\UserTaskResults\\Index.cshtml",
-              "ToolTip": "C:\\Users\\usuario\\Downloads\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject.Mvc\\Views\\UserTaskResults\\Index.cshtml",
-              "RelativeToolTip": "FinalProject.Mvc\\Views\\UserTaskResults\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-12T05:30:02.664Z",
+              "WhenOpened": "2025-08-13T00:40:24.317Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\usuario\\Downloads\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject.Mvc\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "FinalProject.Mvc\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\usuario\\Downloads\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject.Mvc\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "FinalProject.Mvc\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-12T05:24:38.199Z",
+              "Title": "TasksController.cs",
+              "DocumentMoniker": "C:\\Users\\usuario\\Downloads\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject.Mvc\\Controllers\\TasksController.cs",
+              "RelativeDocumentMoniker": "FinalProject.Mvc\\Controllers\\TasksController.cs",
+              "ToolTip": "C:\\Users\\usuario\\Downloads\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject.Mvc\\Controllers\\TasksController.cs",
+              "RelativeToolTip": "FinalProject.Mvc\\Controllers\\TasksController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T00:35:11.151Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\usuario\\Downloads\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject.Mvc\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "FinalProject.Mvc\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\usuario\\Downloads\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject.Mvc\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "FinalProject.Mvc\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABABAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-12T19:19:50.015Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\usuario\\Downloads\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject.Mvc\\Views\\UserTasks\\Index.cshtml",
+              "RelativeDocumentMoniker": "FinalProject.Mvc\\Views\\UserTasks\\Index.cshtml",
+              "ToolTip": "C:\\Users\\usuario\\Downloads\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject.Mvc\\Views\\UserTasks\\Index.cshtml",
+              "RelativeToolTip": "FinalProject.Mvc\\Views\\UserTasks\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-12T19:02:04.539Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\usuario\\Downloads\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject.Mvc\\Views\\Account\\Index.cshtml",
+              "RelativeDocumentMoniker": "FinalProject.Mvc\\Views\\Account\\Index.cshtml",
+              "ToolTip": "C:\\Users\\usuario\\Downloads\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject.Mvc\\Views\\Account\\Index.cshtml",
+              "RelativeToolTip": "FinalProject.Mvc\\Views\\Account\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-12T06:21:01.192Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UserTasksController.cs",
+              "DocumentMoniker": "C:\\Users\\usuario\\Downloads\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject.Mvc\\Controllers\\UserTasksController.cs",
+              "RelativeDocumentMoniker": "FinalProject.Mvc\\Controllers\\UserTasksController.cs",
+              "ToolTip": "C:\\Users\\usuario\\Downloads\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject.Mvc\\Controllers\\UserTasksController.cs",
+              "RelativeToolTip": "FinalProject.Mvc\\Controllers\\UserTasksController.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAArwEAAAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T19:03:10.992Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\usuario\\Downloads\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject.Mvc\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "FinalProject.Mvc\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\usuario\\Downloads\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject.Mvc\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "FinalProject.Mvc\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-12T19:24:41.396Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Site.css",
               "DocumentMoniker": "C:\\Users\\usuario\\Downloads\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject.Mvc\\Content\\Site.css",
               "RelativeDocumentMoniker": "FinalProject.Mvc\\Content\\Site.css",
               "ToolTip": "C:\\Users\\usuario\\Downloads\\Advanced_Programming_Final_Project\\FinalProject\\FinalProject.Mvc\\Content\\Site.css",
               "RelativeToolTip": "FinalProject.Mvc\\Content\\Site.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAG0BAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAAKoCAAAAAAAAAAAMwOoBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2025-08-12T05:08:56.23Z",
               "EditorCaption": ""

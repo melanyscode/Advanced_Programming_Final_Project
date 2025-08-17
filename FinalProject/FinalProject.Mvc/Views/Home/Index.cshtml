@@ -3,110 +3,49 @@
 }
 @model FinalProject.Mvc.Models.DashboardView
 
-<style>
-   
-    .user-card-add{
-        text-align:center;
-        display: flex;
-        justify-content: center;
-    }
-    .progress-circle {
-        --size: 200px;
-        --progress: 0;
-        --color: #00c7c7;
-        width: var(--size);
-        height: var(--size);
-        border-radius: 50%;
-        background: conic-gradient(var(--color) calc(var(--progress) * 1%), #ddd 0);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-        font-size: 30px;
-        color: var(--color);
-        user-select: none;
-        position: relative;
-        box-shadow: 0 0 8px var(--color);
-        text-align: center;
-    }
-
-        .progress-circle::before {
-            content: '';
-            position: absolute;
-            width: calc(var(--size) - 30px);
-            height: calc(var(--size) - 30px);
-            background: #1e1e2f;
-            border-radius: 50%;
-            z-index: 1;
-        }
-
-        .progress-circle > span {
-            position: relative;
-            z-index: 2;
-            color: white;
-        }
-
-    form.remove-task-form {
-        position: absolute;
-        top: 8px;
-        right: 8px;
-        margin: 0;
-    }
-
-        form.remove-task-form button {
-            background-color: transparent;
-            color: white;
-            border: none;
-            font-size: 22px;
-            cursor: pointer;
-            line-height: 1;
-        }
-
-    .task-name {
-        margin-top: 15px;
-        font-size: 18px;
-        font-weight: 600;
-        text-align: center;
-        word-break: break-word;
-    }
-</style>
-
 <main>
 
+    <div class="usrcard-card">
+        <div class="usrcard-icon">
+            @( (ViewBag.Username != null && ViewBag.Username.Length > 0)
+            ? ViewBag.Username.Substring(0, 1).ToUpper()
+            : "?" )
+        </div>
+        <div class="usrcard-details">
+            <h4>@(ViewBag.Username ?? "Invitado")</h4>
+            <p><span>Role:</span> @(ViewBag.Role ?? "Sin Rol")</p>
+        </div>
+    </div>
 
     <section class="row" aria-labelledby="aspnetTitle">
-        <h1 id="title">AKI DAAAAAAAAASHBOARD</h1>
 
-        <form method="post" action="@Url.Action("AddTask")" style="margin-bottom: 20px;">
-            <select name="taskId" class="switch-btn" required>
-                <option value="">Select Tasks</option>
-                @foreach (var task in Model.AllTasks)
-                {
-                    <option value="@task.TaskId">@task.TaskName</option>
-                }
-            </select>
-            <select name="chart" class="switch-btn " required>
-
-                <option value="1">Select Chart Type</option>
-                <option value="1">Donut Chart</option>
-                <option value="2">Line Chart</option>
-                <option value="3">Bar Chart</option>
-
-            </select>
-            <select name="interval" class="switch-btn " required>
-
-                <option value="24">Select Interval</option>
-                <option value="1">Every hour</option>
-                <option value="2">Every 2 hours</option>
-                <option value="3">Every three hours</option>
-                <option value="5">Every 5 hours</option>
-                <option value="8">Every 8 hours</option>
-                <option value="24">Every 24 Hours</option>
-            </select>
-            <button type="submit" class="switch-btn active">Add</button>
+        <form method="post" action="@Url.Action("AddTask")" class="form-switch-section">
+            <div class="form-switch-buttons">
+                <select name="taskId" class="form-switch-btn" required>
+                    <option value="">Tasks</option>
+                    @foreach (var task in Model.AllTasks)
+                    {
+                        <option value="@task.TaskId">@task.TaskName</option>
+                    }
+                </select>
+                <select name="chart" class="form-switch-btn" required>
+                    <option value="1">Chart Type</option>
+                    <option value="1">Donut Chart</option>
+                    <option value="2">Line Chart</option>
+                    <option value="3">Bar Chart</option>
+                </select>
+                <select name="interval" class="form-switch-btn" required>
+                    <option value="24">Interval</option>
+                    <option value="1">Every hour</option>
+                    <option value="2">Every 2 hours</option>
+                    <option value="3">Every three hours</option>
+                    <option value="5">Every 5 hours</option>
+                    <option value="8">Every 8 hours</option>
+                    <option value="24">Every 24 Hours</option>
+                </select>
+                <button type="submit" class="form-switch-btn active">Add</button>
+            </div>
         </form>
-
-        <h2 class="text-center">Monitoring Dashboard</h2>
 
 
         <div id="task-cards-container" style="display:flex; flex-wrap: wrap; gap: 20px;">
@@ -114,6 +53,8 @@
         </div>
 
     </section>
+
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         async function fetchUserTasks() {
@@ -129,7 +70,7 @@
                     val = Math.min(100, Math.max(0, val));
 
                     const taskCard = document.createElement('div');
-                    taskCard.className = 'user-card';
+                   taskCard.className = 'dash-card';
 
                     const form = document.createElement('form');
                     form.method = 'post';
@@ -159,7 +100,7 @@
 
                         taskCard.appendChild(form);
                         const graphic = document.createElement('div');
-                        graphic.className = "user-card-add";
+                       graphic.className = "dash-card-add";
 
                         const progressCircle = document.createElement('div');
                         progressCircle.className = 'progress-circle';
@@ -204,29 +145,52 @@
                         console.log(typeof labels)
                         const dataValues = task.History.map(h => h.value);
 
-                        new Chart(canvas.getContext('2d'), {
-                            type: 'line',
-                            data: {
-                                labels: labels,
-                                datasets: [{
-                                    label: task.TaskName,
-                                    data: dataValues,
-                                    borderColor: '#00c7c7',
-                                    backgroundColor: 'rgba(0, 199, 199, 0.2)',
-                                    fill: true,
-                                    tension: 0.3
-                                }]
-                            },
-                            options: {
-                                responsive: false,
-                                scales: {
-                                    y: {
-                                        beginAtZero: true,
-                                        max: 100
-                                    }
-                                }
-                            }
-                        });
+                       new Chart(canvas.getContext('2d'), {
+                           type: 'line',
+                           data: {
+                               labels: labels,
+                               datasets: [{
+                                   label: "",
+                                   data: dataValues,
+                                   borderColor: '#00e5ff',
+                                   backgroundColor: 'rgba(0, 199, 199, 0.3)',
+                                   fill: true,
+                                   tension: 0.3
+                               }]
+                           },
+                           options: {
+                               responsive: true,
+                               maintainAspectRatio: false,
+                               plugins: {
+                                   legend: {
+                                       display: false
+                                   },
+                                   tooltip: {
+                                       enabled: true,
+                                       backgroundColor: 'rgba(0, 199, 199, 0.9)',
+                                       titleFont: {
+                                           size: 18,
+                                           weight: 'bold'
+                                       },
+                                       bodyFont: {
+                                           size: 16
+                                       },
+                                       padding: 12,
+                                       cornerRadius: 8,
+                                       displayColors: true,
+                                       caretPadding: 10,
+                                       boxPadding: 10
+                                   }
+                               },
+                               scales: {
+                                   y: {
+                                       beginAtZero: true,
+                                       max: 100
+                                   }
+                               }
+                           }
+                       });
+
 
                    } else if (task.ChartType === 3) {
                         const form = document.createElement('form');
@@ -263,31 +227,53 @@
                         console.log(typeof labels)
                         const dataValues = task.History.map(h => h.value);
 
-                        new Chart(canvas.getContext('2d'), {
-                            type: 'bar',
-                            data: {
-                                labels: labels,
-                                datasets: [{
-                                    label: task.TaskName,
-                                    data: dataValues,
-                                    borderColor: '#00c7c7',
-                                    backgroundColor: 'rgba(0, 199, 199, 0.2)',
-                                    fill: true,
-                                    tension: 0.3
-                                }]
-                            },
-                            options: {
-                                responsive: false,
-                                scales: {
-                                    y: {
-                                        beginAtZero: true,
-                                        max: 100
-                                    }
-                                }
-                            }
-                        });
-                    }
+                       new Chart(canvas.getContext('2d'), {
+                           type: 'bar',
+                           data: {
+                               labels: labels,
+                               datasets: [{
+                                   label: "",
+                                   data: dataValues,
+                                   borderColor: '#00e5ff',
+                                   backgroundColor: 'rgba(0, 199, 199, 0.6)',
+                                   fill: true,
+                                   tension: 0.3
+                               }]
+                           },
+                           options: {
+                               responsive: true,
+                               maintainAspectRatio: false,
+                               plugins: {
+                                   legend: {
+                                       display: false
+                                   },
+                                   tooltip: {
+                                       enabled: true,
+                                       backgroundColor: 'rgba(0, 199, 199, 0.2)',
+                                       titleFont: {
+                                           size: 18,
+                                           weight: 'bold'
+                                       },
+                                       bodyFont: {
+                                           size: 16
+                                       },
+                                       padding: 12,
+                                       cornerRadius: 8,
+                                       displayColors: true,
+                                       caretPadding: 10,
+                                       boxPadding: 10
+                                   }
+                               },
+                               scales: {
+                                   y: {
+                                       beginAtZero: true,
+                                       max: 100
+                                   }
+                               }
+                           }
+                       });
 
+                   }
 
                     const taskNameDiv = document.createElement('div');
                     taskNameDiv.className = 'task-name';

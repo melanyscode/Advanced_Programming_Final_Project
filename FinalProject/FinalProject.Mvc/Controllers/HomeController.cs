@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations.History;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
@@ -45,15 +46,12 @@ namespace FinalProject.Mvc.Controllers
             return View(model);
         }
 
-
-
-
         [HttpPost]
         public ActionResult AddTask(int taskId, int chart, int interval)
         {
             int userId = GetCurrentUserIdFromSession();
 
-            
+
             bool exists = repositoryUserTask.GetAll()
                 .Any(ut => ut.UserId == userId && ut.TaskId == taskId);
 
@@ -121,6 +119,18 @@ namespace FinalProject.Mvc.Controllers
             return Json(userTasks, JsonRequestBehavior.AllowGet);
         }
 
+        public ActionResult IndexDash()
+        {
+            if (Session["User"] == null)
+            {
+                return RedirectToAction("Index", "Account");
+            }
 
+            ViewBag.Username = Session["User"] != null ? Session["User"].ToString() : "Invitado";
+            ViewBag.Role = Session["RoleId"] != null ? Session["RoleId"].ToString() : "Sin Rol";
+
+
+            return View();
+        }
     }
 }
