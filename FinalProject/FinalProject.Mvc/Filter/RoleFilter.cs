@@ -8,10 +8,10 @@ namespace AdvancedProgramming.Mvc.Filters
 {
     public class RoleFilter : ActionFilterAttribute
     {
-        private readonly int _roleId;
-        public RoleFilter(int roleId)
+                private readonly string _role;
+        public RoleFilter(string role)
         {
-            _roleId = roleId;
+            _role = role;
         }
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
@@ -19,16 +19,14 @@ namespace AdvancedProgramming.Mvc.Filters
 
             if (session["RoleId"] == null)
             {
-             
                 filterContext.Result = new RedirectResult("/Login/Login");
                 return;
             }
 
-            int userRoleId = (int)session["RoleId"];
+            string userRole = session["RoleId"].ToString();
 
-            if (userRoleId != _roleId)
+            if (!userRole.Equals(_role, StringComparison.OrdinalIgnoreCase))
             {
-               
                 filterContext.Result = new HttpStatusCodeResult(403, "Access Denied");
             }
         }
