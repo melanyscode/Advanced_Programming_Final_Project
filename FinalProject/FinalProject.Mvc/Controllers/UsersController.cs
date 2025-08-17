@@ -11,6 +11,7 @@ using FinalProject.Data;
 
 namespace FinalProject.Mvc.Controllers
 {
+    [RoleFilter("Admin")]
     public class UsersController : Controller
     {
         private readonly UserBusiness userBusiness;
