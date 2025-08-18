@@ -3,7 +3,11 @@
 }
 @model FinalProject.Mvc.Models.DashboardView
 
+
+
+
 <main>
+  
 
     <div class="usrcard-card">
         <div class="usrcard-icon">
@@ -16,6 +20,8 @@
             <p><span>Role:</span> @(ViewBag.Role ?? "Sin Rol")</p>
         </div>
     </div>
+
+
 
     <section class="row" aria-labelledby="aspnetTitle">
 
@@ -64,13 +70,14 @@
 
                 const container = document.getElementById('task-cards-container');
                 container.innerHTML = '';
+                let failed = true;
 
-               tasks.forEach(task => {
+                tasks.forEach(task => {
                     let val = parseInt(task.Result?.replace("%", "").trim()) || 0;
                     val = Math.min(100, Math.max(0, val));
 
                     const taskCard = document.createElement('div');
-                   taskCard.className = 'dash-card';
+                    taskCard.className = 'dash-card';
 
                     const form = document.createElement('form');
                     form.method = 'post';
@@ -79,8 +86,42 @@
 
 
                     taskCard.appendChild(form);
+                    let status = task.Status
+                    let message = "Tasks Failed"
+                    let name = task.TaskName
+                    console.log(task)
+                    if (status == "Failed") {
 
-                   if (task.ChartType === 1) {
+
+                        (function () {
+                            var container = document.getElementById('toast-container');
+                            var toast = document.createElement('div');
+                            toast.className = 'toast-message';
+                            toast.textContent = 'Task Failed: ' + name;
+
+                            toast.onclick = function () {
+                                container.removeChild(toast);
+                            };
+
+                            container.appendChild(toast);
+
+                            setTimeout(function () {
+                                if (toast.parentNode === container) {
+                                    toast.style.transition = 'opacity 0.5s ease';
+                                    toast.style.opacity = '0';
+                                    setTimeout(function () {
+                                        if (toast.parentNode === container) {
+                                            container.removeChild(toast);
+                                        }
+                                    }, 500);
+                                }
+                            }, 15000);
+                        })();
+                        failed = task.ChartType == 4;
+
+                    }
+
+                    if (!failed) {
                         const form = document.createElement('form');
                         form.method = 'post';
                         form.action = '@Url.Action("RemoveTask")';
@@ -100,99 +141,15 @@
 
                         taskCard.appendChild(form);
                         const graphic = document.createElement('div');
-                       graphic.className = "dash-card-add";
+                        graphic.className = "dash-card-add";
 
                         const progressCircle = document.createElement('div');
                         progressCircle.className = 'progress-circle';
-                        progressCircle.style.setProperty('--progress', val);
-                        progressCircle.innerHTML = `<span>${val}%</span>`;
+                        progressCircle.innerHTML = `<span>Failed</span>`;
                         graphic.appendChild(progressCircle);
 
                         taskCard.appendChild(graphic);
-
-                   } else if (task.ChartType === 2) {
-                        const form = document.createElement('form');
-                        form.method = 'post';
-                        form.action = '@Url.Action("RemoveTask")';
-                        form.className = 'remove-task-form';
-
-                        const hiddenInput = document.createElement('input');
-                        hiddenInput.type = 'hidden';
-                        hiddenInput.name = 'taskId';
-                        hiddenInput.value = task.TaskId;
-                        form.appendChild(hiddenInput);
-
-                        const btn = document.createElement('button');
-                        btn.type = 'submit';
-                        btn.setAttribute('aria-label', 'Remove task');
-                        btn.innerHTML = '&times;';
-                        form.appendChild(btn);
-
-                        taskCard.appendChild(form);
-                        console.log(task.history);
-
-                        const canvas = document.createElement('canvas');
-                        canvas.style.width = "200px";
-                        canvas.style.height = "150px";
-                        taskCard.appendChild(canvas);
-
-                        const labels = task.History.map(h => {
-                            const date = new Date(h.date);
-                            console.log( "fecha " + h.date)
-                            return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-                        });
-
-                        console.log(typeof labels)
-                        const dataValues = task.History.map(h => h.value);
-
-                       new Chart(canvas.getContext('2d'), {
-                           type: 'line',
-                           data: {
-                               labels: labels,
-                               datasets: [{
-                                   label: "",
-                                   data: dataValues,
-                                   borderColor: '#00e5ff',
-                                   backgroundColor: 'rgba(0, 199, 199, 0.3)',
-                                   fill: true,
-                                   tension: 0.3
-                               }]
-                           },
-                           options: {
-                               responsive: true,
-                               maintainAspectRatio: false,
-                               plugins: {
-                                   legend: {
-                                       display: false
-                                   },
-                                   tooltip: {
-                                       enabled: true,
-                                       backgroundColor: 'rgba(0, 199, 199, 0.9)',
-                                       titleFont: {
-                                           size: 18,
-                                           weight: 'bold'
-                                       },
-                                       bodyFont: {
-                                           size: 16
-                                       },
-                                       padding: 12,
-                                       cornerRadius: 8,
-                                       displayColors: true,
-                                       caretPadding: 10,
-                                       boxPadding: 10
-                                   }
-                               },
-                               scales: {
-                                   y: {
-                                       beginAtZero: true,
-                                       max: 100
-                                   }
-                               }
-                           }
-                       });
-
-
-                   } else if (task.ChartType === 3) {
+                    }  else if (task.ChartType === 2) {
                         const form = document.createElement('form');
                         form.method = 'post';
                         form.action = '@Url.Action("RemoveTask")';
@@ -227,53 +184,166 @@
                         console.log(typeof labels)
                         const dataValues = task.History.map(h => h.value);
 
-                       new Chart(canvas.getContext('2d'), {
-                           type: 'bar',
-                           data: {
-                               labels: labels,
-                               datasets: [{
-                                   label: "",
-                                   data: dataValues,
-                                   borderColor: '#00e5ff',
-                                   backgroundColor: 'rgba(0, 199, 199, 0.6)',
-                                   fill: true,
-                                   tension: 0.3
-                               }]
-                           },
-                           options: {
-                               responsive: true,
-                               maintainAspectRatio: false,
-                               plugins: {
-                                   legend: {
-                                       display: false
-                                   },
-                                   tooltip: {
-                                       enabled: true,
-                                       backgroundColor: 'rgba(0, 199, 199, 0.2)',
-                                       titleFont: {
-                                           size: 18,
-                                           weight: 'bold'
-                                       },
-                                       bodyFont: {
-                                           size: 16
-                                       },
-                                       padding: 12,
-                                       cornerRadius: 8,
-                                       displayColors: true,
-                                       caretPadding: 10,
-                                       boxPadding: 10
-                                   }
-                               },
-                               scales: {
-                                   y: {
-                                       beginAtZero: true,
-                                       max: 100
-                                   }
-                               }
-                           }
-                       });
+                        new Chart(canvas.getContext('2d'), {
+                            type: 'line',
+                            data: {
+                                labels: labels,
+                                datasets: [{
+                                    label: "",
+                                    data: dataValues,
+                                    borderColor: '#00e5ff',
+                                    backgroundColor: 'rgba(0, 199, 199, 0.3)',
+                                    fill: true,
+                                    tension: 0.3
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                plugins: {
+                                    legend: {
+                                        display: false
+                                    },
+                                    tooltip: {
+                                        enabled: true,
+                                        backgroundColor: 'rgba(0, 199, 199, 0.9)',
+                                        titleFont: {
+                                            size: 18,
+                                            weight: 'bold'
+                                        },
+                                        bodyFont: {
+                                            size: 16
+                                        },
+                                        padding: 12,
+                                        cornerRadius: 8,
+                                        displayColors: true,
+                                        caretPadding: 10,
+                                        boxPadding: 10
+                                    }
+                                },
+                                scales: {
+                                    y: {
+                                        beginAtZero: true,
+                                        max: 100
+                                    }
+                                }
+                            }
+                        });
 
-                   }
+
+                    } else if (task.ChartType === 3) {
+                        const form = document.createElement('form');
+                        form.method = 'post';
+                        form.action = '@Url.Action("RemoveTask")';
+                        form.className = 'remove-task-form';
+
+                        const hiddenInput = document.createElement('input');
+                        hiddenInput.type = 'hidden';
+                        hiddenInput.name = 'taskId';
+                        hiddenInput.value = task.TaskId;
+                        form.appendChild(hiddenInput);
+
+                        const btn = document.createElement('button');
+                        btn.type = 'submit';
+                        btn.setAttribute('aria-label', 'Remove task');
+                        btn.innerHTML = '&times;';
+                        form.appendChild(btn);
+
+                        taskCard.appendChild(form);
+                        console.log(task.history);
+
+                        const canvas = document.createElement('canvas');
+                        canvas.style.width = "200px";
+                        canvas.style.height = "150px";
+                        taskCard.appendChild(canvas);
+
+                        const labels = task.History.map(h => {
+                            const date = new Date(h.date);
+                            console.log("fecha " + h.date)
+                            return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                        });
+
+                        console.log(typeof labels)
+                        const dataValues = task.History.map(h => h.value);
+
+                        new Chart(canvas.getContext('2d'), {
+                            type: 'bar',
+                            data: {
+                                labels: labels,
+                                datasets: [{
+                                    label: "",
+                                    data: dataValues,
+                                    borderColor: '#00e5ff',
+                                    backgroundColor: 'rgba(0, 199, 199, 0.6)',
+                                    fill: true,
+                                    tension: 0.3
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                plugins: {
+                                    legend: {
+                                        display: false
+                                    },
+                                    tooltip: {
+                                        enabled: true,
+                                        backgroundColor: 'rgba(0, 199, 199, 0.2)',
+                                        titleFont: {
+                                            size: 18,
+                                            weight: 'bold'
+                                        },
+                                        bodyFont: {
+                                            size: 16
+                                        },
+                                        padding: 12,
+                                        cornerRadius: 8,
+                                        displayColors: true,
+                                        caretPadding: 10,
+                                        boxPadding: 10
+                                    }
+                                },
+                                scales: {
+                                    y: {
+                                        beginAtZero: true,
+                                        max: 100
+                                    }
+                                }
+                            }
+                        });
+
+                    } else if (task.ChartType === 1) {
+                        const form = document.createElement('form');
+                        form.method = 'post';
+                        form.action = '@Url.Action("RemoveTask")';
+                        form.className = 'remove-task-form';
+
+                        const hiddenInput = document.createElement('input');
+                        hiddenInput.type = 'hidden';
+                        hiddenInput.name = 'taskId';
+                        hiddenInput.value = task.TaskId;
+                        form.appendChild(hiddenInput);
+
+                        const btn = document.createElement('button');
+                        btn.type = 'submit';
+                        btn.setAttribute('aria-label', 'Remove task');
+                        btn.innerHTML = '&times;';
+                        form.appendChild(btn);
+
+                        taskCard.appendChild(form);
+                        const graphic = document.createElement('div');
+                        graphic.className = "dash-card-add";
+
+                        const progressCircle = document.createElement('div');
+                        progressCircle.className = 'progress-circle';
+                        progressCircle.style.setProperty('--progress', val);
+                        progressCircle.innerHTML = `<span>${val}%</span>`;
+                        graphic.appendChild(progressCircle);
+
+                        taskCard.appendChild(graphic);
+
+                    
+                    }
 
                     const taskNameDiv = document.createElement('div');
                     taskNameDiv.className = 'task-name';
@@ -281,6 +351,7 @@
                     taskCard.appendChild(taskNameDiv);
 
                     container.appendChild(taskCard);
+
                 });
 
 
@@ -289,7 +360,7 @@
             }
         }
 
-        setInterval(fetchUserTasks, 5000);
+        setInterval(fetchUserTasks, 20000);
 
 
         fetchUserTasks();

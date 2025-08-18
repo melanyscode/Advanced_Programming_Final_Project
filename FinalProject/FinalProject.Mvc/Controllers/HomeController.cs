@@ -42,6 +42,13 @@ namespace FinalProject.Mvc.Controllers
                 AllTasks = allTasks.ToList(),
                 UserTasks = userTaskDetails
             };
+            if (Session["User"] == null)
+            {
+                return RedirectToAction("Index", "Account");
+            }
+
+            ViewBag.Username = Session["User"] != null ? Session["User"].ToString() : "Invited";
+            ViewBag.Role = Session["RoleId"] != null ? Session["RoleId"].ToString() : "No role";
 
             return View(model);
         }
@@ -69,9 +76,14 @@ namespace FinalProject.Mvc.Controllers
 
                 repositoryUserTask.Add(userTask);
                 repositoryUserTask.Save();
+                TempData["GlobalNotification"] = "Task Added.";
+            }
+            else
+            {
+                TempData["GlobalNotification"] = "Task already exists for this user.";
             }
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
         }
 
 
@@ -107,6 +119,7 @@ namespace FinalProject.Mvc.Controllers
                     ut.UserTaskId,
                     ut.TaskId,
                     ut.Result,
+                    ut.Status,
                     ChartType = ut.Chart,
                     TaskName = repositoryTasks.GetById(ut.TaskId)?.TaskName ?? "N/A",
                    History = ut.UserTaskResults.OrderByDescending(utr => utr.ExecutionDate).Select(utr => new {

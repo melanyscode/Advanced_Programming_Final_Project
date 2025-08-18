@@ -7,6 +7,10 @@
         .GroupBy(r => r.UserTask.Status);
 }
 
+@{
+    var role = (Session["RoleId"] ?? "").ToString();
+    bool isAdmin = role.Equals("Admin", StringComparison.OrdinalIgnoreCase);
+}
 
 @foreach (var group in groupedResults)
 {

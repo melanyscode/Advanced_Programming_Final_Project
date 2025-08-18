@@ -10,6 +10,10 @@
     ViewBag.Title = "Index";
     var groupedUserTasks = Model.GroupBy(u => u.Status);
 }
+@{
+    var role = (Session["RoleId"] ?? "").ToString();
+    bool isAdmin = role.Equals("Admin", StringComparison.OrdinalIgnoreCase);
+}
 
 
 <div class="switch-section">
@@ -61,9 +65,15 @@
                     <td style="text-align: center;">@Html.DisplayFor(modelItem => item.Tasks.TaskName)</td>
                     <td style="text-align: center;">@Html.DisplayFor(modelItem => item.User.Username)</td>
                     <td class="action-buttons" style="display: flex; justify-content: center; gap: 10px;">
-                        @Html.ActionLink("Edit", "Edit", new { id = item.UserTaskId }, new { @class = "btn-action edit" })
+                        @if (isAdmin)
+                        {
+                            @Html.ActionLink("Edit", "Edit", new { id = item.UserTaskId }, new { @class = "btn-action edit" })
+                        }
                         @Html.ActionLink("Details", "Details", new { id = item.UserTaskId }, new { @class = "btn-action details" })
-                        @Html.ActionLink("Delete", "Delete", new { id = item.UserTaskId }, new { @class = "btn-action delete" })
+                        @if (isAdmin)
+                        {
+                            @Html.ActionLink("Delete", "Delete", new { id = item.UserTaskId }, new { @class = "btn-action delete" })
+                        }
                     </td>
                 </tr>
             }

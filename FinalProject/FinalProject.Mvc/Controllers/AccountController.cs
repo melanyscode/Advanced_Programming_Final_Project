@@ -32,7 +32,7 @@ namespace FinalProject.Mvc.Controllers
                 Session["UserId"] = user.UserId;
                 Session["User"] = user.Username;
                 Session["RoleId"] = user.Role;
-                return RedirectToAction("Index", "UserTasks");
+                return RedirectToAction("Index", "Home");
             }
             
                 ViewBag.Error = "Invalid username or password";

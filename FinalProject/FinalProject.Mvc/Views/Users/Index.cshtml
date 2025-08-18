@@ -6,6 +6,10 @@
     ViewBag.Title = "Index";
     var groupedUsers = Model.GroupBy(u => u.Role);
 }
+@{
+    var role = (Session["RoleId"] ?? "").ToString();
+    bool isAdmin = role.Equals("Admin", StringComparison.OrdinalIgnoreCase);
+}
 
 <p>
     @Html.ActionLink("CREATE NEW", "Create", null, new { @class = "top-link" })
@@ -27,10 +31,17 @@
                     </div>
 
                     <div class="action-buttons">
-                        @Html.ActionLink("Edit", "Edit", new { id = user.UserId }, new { @class = "btn-action edit" })
+                        }
+                        @if (isAdmin)
+                        {
+                            @Html.ActionLink("Edit", "Edit", new { id = user.UserId }, new { @class = "btn-action edit" })
+                        }
                         @Html.ActionLink("Details", "Details", new { id = user.UserId }, new { @class = "btn-action details" })
-                        @Html.ActionLink("Delete", "Delete", new { id = user.UserId }, new { @class = "btn-action delete" })
-                    </div>
+                        @if (isAdmin)
+                        {
+                            @Html.ActionLink("Delete", "Delete", new { id = user.UserId }, new { @class = "btn-action delete" })
+                        }
+                        </div>
                 </div>
             }
         </div>
